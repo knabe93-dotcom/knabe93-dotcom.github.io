@@ -25,6 +25,7 @@
 </head>
 <body>
   <a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- ====== Obere Info-Leiste ====== -->
   <div class="topbar">
@@ -186,7 +187,7 @@
         </p>
 
         <figure class="compare reveal">
-          <img src="assets/projekte/vorhernachher.png" alt="Vorher/Nachher-Vergleich eines Website-Redesigns" loading="lazy" />
+          <img src="assets/projekte/vorhernachher.webp" alt="Vorher/Nachher-Vergleich eines Website-Redesigns" loading="lazy" />
         </figure>
 
         <p class="bna-hint center">
@@ -207,19 +208,19 @@
         <div class="work-grid">
           <!-- Bilder einfügen: Screenshots als JPG/PNG nach assets/projekte/ legen und unten src + das TODO entfernen. -->
           <figure class="work reveal">
-            <img class="work-img" src="assets/projekte/dasrad.png" alt="DASRAD – Website für Fahrrad &amp; E-Commerce" loading="lazy" width="800" height="500" />
+            <img class="work-img" src="assets/projekte/dasrad.webp" alt="DASRAD – Website für Fahrrad &amp; E-Commerce" loading="lazy" width="800" height="500" />
             <figcaption><span class="work-cat">Fahrrad &amp; E-Commerce</span><span class="work-meta">DASRAD</span></figcaption>
           </figure>
           <figure class="work reveal">
-            <img class="work-img" src="assets/projekte/kanzlei.png" alt="Website für eine Rechtsanwaltskanzlei" loading="lazy" width="800" height="500" />
+            <img class="work-img" src="assets/projekte/kanzlei.webp" alt="Website für eine Rechtsanwaltskanzlei" loading="lazy" width="800" height="500" />
             <figcaption><span class="work-cat">Recht &amp; Kanzlei</span><span class="work-meta">Rechtsberatung</span></figcaption>
           </figure>
           <figure class="work reveal">
-            <img class="work-img" src="assets/projekte/luxe-salon.png" alt="Luxe Salon – Website für Beauty &amp; Friseur" loading="lazy" width="800" height="500" />
+            <img class="work-img" src="assets/projekte/luxe-salon.webp" alt="Luxe Salon – Website für Beauty &amp; Friseur" loading="lazy" width="800" height="500" />
             <figcaption><span class="work-cat">Beauty &amp; Friseur</span><span class="work-meta">Luxe Salon</span></figcaption>
           </figure>
           <figure class="work reveal">
-            <img class="work-img" src="assets/projekte/vista-suites.png" alt="Vista Suites – Website für Hotel &amp; Hospitality" loading="lazy" width="800" height="500" />
+            <img class="work-img" src="assets/projekte/vista-suites.webp" alt="Vista Suites – Website für Hotel &amp; Hospitality" loading="lazy" width="800" height="500" />
             <figcaption><span class="work-cat">Hotel &amp; Hospitality</span><span class="work-meta">Vista Suites</span></figcaption>
           </figure>
         </div>
@@ -380,9 +381,36 @@
 
   <!-- ====== Footer ====== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© <span id="jahr">2026</span> Kevin Knabe</span>
-      <div class="footer-links"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="logo"><span class="logo-mark">KK</span><span class="logo-text">Kevin&nbsp;Knabe</span></a>
+          <p>Moderne, handgeschriebene Websites für Unternehmen aus der Region Karlsruhe. Erst die Website, dann die Bezahlung.</p>
+          <a href="#kontakt" class="btn btn-accent btn-sm">Projekt anfragen →</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-head">Navigation</p>
+          <nav>
+            <a href="#leistungen">Leistungen</a>
+            <a href="#referenzen">Vorher/Nachher</a>
+            <a href="#branchen">Projekte</a>
+            <a href="#ablauf">Ablauf</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <p class="footer-head">Kontakt</p>
+          <address>
+            <a href="mailto:Knabe93@gmail.com">Knabe93@gmail.com</a>
+            <span>76344 Karlsruhe</span>
+            <a href="https://www.linkedin.com/in/kevin-knabe-2bb692262/" target="_blank" rel="noopener">LinkedIn</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="jahr">2026</span> Kevin Knabe</span>
+        <div class="footer-links"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
+      </div>
     </div>
   </footer>
 

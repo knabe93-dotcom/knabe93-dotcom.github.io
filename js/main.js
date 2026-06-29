@@ -97,4 +97,41 @@
     var block = L.join("\n");
     heroCode.innerHTML = '<div class="hero-code-track">' + block + "\n" + block + "\n" + block + "</div>";
   }
+
+  /* ---- Scroll-Fortschrittsbalken ---- */
+  var progress = document.getElementById("scrollProgress");
+  if (progress) {
+    var updateProgress = function () {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    };
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+  }
+
+  /* ---- Spotlight, das dem Cursor folgt ---- */
+  Array.prototype.forEach.call(document.querySelectorAll(".card, .work, .philo-pair"), function (el) {
+    el.addEventListener("mousemove", function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      el.style.setProperty("--my", (e.clientY - r.top) + "px");
+    });
+  });
+
+  /* ---- Sanfter 3D-Tilt auf Projektkarten ---- */
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
+  if (!reduce && finePointer) {
+    Array.prototype.forEach.call(document.querySelectorAll(".work"), function (el) {
+      el.addEventListener("mousemove", function (e) {
+        var r = el.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transform = "perspective(800px) rotateX(" + (-py * 5).toFixed(2) + "deg) rotateY(" + (px * 5).toFixed(2) + "deg) translateY(-4px)";
+      });
+      el.addEventListener("mouseleave", function () { el.style.transform = ""; });
+    });
+  }
 })();
