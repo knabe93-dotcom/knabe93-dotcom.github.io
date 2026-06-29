@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ====== SEO / Meta (PLATZHALTER ggf. anpassen) ====== -->
+  <title>Kevin Knabe – Moderne Websites für lokale Unternehmen</title>
+  <meta name="description" content="Ich baue moderne, schnelle Websites für Unternehmen, die noch veraltete Seiten nutzen. Webentwicklung aus deiner Region – handgemacht, performant, mobilfreundlich." />
+  <meta name="author" content="Kevin Knabe" />
+  <meta name="theme-color" content="#0b0f17" />
+
+  <!-- Open Graph (für Vorschau beim Teilen) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kevin Knabe – Moderne Websites für lokale Unternehmen" />
+  <meta property="og:description" content="Webentwicklung aus deiner Region – handgemacht, performant, mobilfreundlich." />
+  <meta property="og:locale" content="de_DE" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Schriften -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
+
+  <!-- ====== Navigation ====== -->
+  <header class="site-header" id="seitenkopf">
+    <div class="container nav-inner">
+      <a href="#hero" class="logo" aria-label="Startseite Kevin Knabe">
+        <span class="logo-mark">KK</span>
+        <span class="logo-text">Kevin&nbsp;Knabe</span>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menü öffnen">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#ueber">Über mich</a></li>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#portfolio">Vorher/Nachher</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#kontakt" class="btn btn-accent btn-sm nav-cta">Projekt anfragen</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="hauptinhalt">
+
+    <!-- ====== Hero ====== -->
+    <section class="hero" id="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="hero-eyebrow reveal">Webentwicklung aus deiner Region</p>
+        <h1 class="hero-title reveal">
+          Moderne Websites für Unternehmen, die noch im
+          <span class="gradient-text">Jahr 2005</span> feststecken.
+        </h1>
+        <p class="hero-sub reveal">
+          Ich verwandle veraltete, langsame Internetauftritte in schnelle,
+          mobilfreundliche Websites, die heute Kunden gewinnen – handgemacht,
+          ohne Baukasten-Ballast.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#portfolio" class="btn btn-accent">Vorher/Nachher ansehen</a>
+          <a href="#kontakt" class="btn btn-ghost">Projekt anfragen</a>
+        </div>
+        <ul class="hero-stats reveal" aria-label="Eckdaten">
+          <li><strong>100 %</strong><span>handgeschrieben</span></li>
+          <li><strong>&lt; 1 s</strong><span>Ladezeit-Ziel</span></li>
+          <li><strong>Mobil</strong><span>zuerst gedacht</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== Über mich ====== -->
+    <section class="section" id="ueber">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <h2 class="section-title">Über mich</h2>
+          <!-- PLATZHALTER: Bitte durch deinen echten Werdegang ersetzen -->
+          <p>
+            Hallo, ich bin <strong>Kevin Knabe</strong>. Ich entwickle Websites
+            für kleine und mittlere Unternehmen in meiner Region. Mein Fokus:
+            Seiten, die schnell laden, auf jedem Smartphone gut aussehen und
+            neue Kundinnen und Kunden bringen.
+          </p>
+          <p>
+            Viele Firmen arbeiten noch mit Internetauftritten von vor 15&nbsp;Jahren –
+            unübersichtlich, langsam und am Handy kaum benutzbar. Genau das ändere ich:
+            mit sauberem, handgeschriebenem Code statt überladenem Baukasten.
+          </p>
+          <!-- /PLATZHALTER -->
+          <ul class="skill-tags" aria-label="Fähigkeiten">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Responsive Design</li>
+            <li>SEO-Basics</li>
+            <li>Performance</li>
+            <li>Barrierefreiheit</li>
+          </ul>
+        </div>
+        <aside class="about-card reveal" aria-hidden="true">
+          <!-- PLATZHALTER: optional dein Foto in assets/ legen und hier einbinden -->
+          <div class="about-photo">KK</div>
+          <p class="about-card-note">Foto folgt</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ====== Leistungen ====== -->
+    <section class="section section-alt" id="leistungen">
+      <div class="container">
+        <h2 class="section-title center reveal">Leistungen</h2>
+        <p class="section-lead center reveal">Klare Angebote – ohne Fachchinesisch.</p>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">↻</div>
+            <h3>Website-Relaunch</h3>
+            <p>Aus deiner alten Seite wird ein moderner, schneller Auftritt – mobilfreundlich und auffindbar bei Google.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">✦</div>
+            <h3>Neue Website</h3>
+            <p>Du hast noch keine Seite? Ich baue von Grund auf eine, die zu deinem Betrieb passt – inklusive Kontakt &amp; Anfahrt.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">⚙</div>
+            <h3>Wartung &amp; Pflege</h3>
+            <p>Updates, kleine Änderungen und technische Betreuung, damit deine Seite dauerhaft sicher und aktuell bleibt.</p>
+          </article>
+        </div>
+        <!-- PLATZHALTER: Preisrahmen ergänzen, falls gewünscht -->
+      </div>
+    </section>
+
+    <!-- ====== Portfolio: Vorher/Nachher ====== -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <h2 class="section-title center reveal">Vorher / Nachher</h2>
+        <p class="section-lead center reveal">
+          Zieh den Regler – links der typische „2005er"-Auftritt, rechts dieselbe Firma,
+          neu gedacht. (Beispiel: <em>Bäckerei Lindenhof</em>)
+        </p>
+
+        <!-- Vorher/Nachher-Slider -->
+        <div class="bna" id="bna" aria-label="Vorher-Nachher-Vergleich, mit Pfeiltasten bedienbar">
+          <!-- NACHHER (liegt unten / volle Breite) -->
+          <div class="bna-layer bna-after" aria-hidden="false">
+            <div class="mock mock-new">
+              <div class="mock-new-nav">
+                <span class="mock-new-logo">Bäckerei&nbsp;Lindenhof</span>
+                <span class="mock-new-links"><i></i><i></i><i></i></span>
+              </div>
+              <div class="mock-new-hero">
+                <p class="mock-new-eyebrow">Handwerksbäckerei seit 1979</p>
+                <h4>Frisches Brot.<br />Jeden Morgen.</h4>
+                <span class="mock-new-btn">Sortiment ansehen</span>
+              </div>
+              <div class="mock-new-row">
+                <span class="mock-new-tile"></span>
+                <span class="mock-new-tile"></span>
+                <span class="mock-new-tile"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- VORHER (liegt oben, wird vom Regler beschnitten) -->
+          <div class="bna-layer bna-before" id="bnaBefore">
+            <div class="mock mock-old">
+              <div class="mock-old-top">★ Willkommen auf der Homepage der Bäckerei Lindenhof ★</div>
+              <div class="mock-old-banner">BÄCKEREI LINDENHOF</div>
+              <marquee class="mock-old-marquee">Neu: Jetzt auch sonntags geöffnet!!! +++ Beste Brötchen der Stadt +++</marquee>
+              <table class="mock-old-table">
+                <tr>
+                  <td class="mock-old-menu">
+                    » Startseite<br />» Über uns<br />» Produkte<br />» Kontakt<br />» Gästebuch
+                  </td>
+                  <td class="mock-old-content">
+                    <p>Herzlich willkommen!!!</p>
+                    <p>Wir backen seit 1979 mit Liebe. Schauen Sie doch mal vorbei.</p>
+                    <p class="mock-old-blink">!! NEU: Online-Bestellung bald verfügbar !!</p>
+                    <div class="mock-old-counter">Besucher: 0001337</div>
+                  </td>
+                </tr>
+              </table>
+              <div class="mock-old-foot">Best viewed with Internet Explorer 6 • 800×600</div>
+            </div>
+          </div>
+
+          <!-- Regler-Griff -->
+          <input type="range" min="0" max="100" value="50" class="bna-range" id="bnaRange"
+                 aria-label="Vergleichsregler Vorher/Nachher" />
+          <div class="bna-divider" id="bnaDivider" aria-hidden="true">
+            <span class="bna-handle">⇆</span>
+          </div>
+          <span class="bna-tag bna-tag-before">Vorher</span>
+          <span class="bna-tag bna-tag-after">Nachher</span>
+        </div>
+
+        <p class="bna-hint center">
+          <a href="demos/alt-2005.html" target="_blank" rel="noopener">Alte Version öffnen</a>
+          &nbsp;·&nbsp;
+          <a href="demos/neu-modern.html" target="_blank" rel="noopener">Neue Version öffnen</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ====== Kontakt ====== -->
+    <section class="section section-alt" id="kontakt">
+      <div class="container contact-inner">
+        <h2 class="section-title center reveal">Lass uns reden</h2>
+        <p class="section-lead center reveal">
+          Du hast eine Website, die in die Jahre gekommen ist – oder brauchst eine neue?
+          Schreib mir, ich melde mich zeitnah.
+        </p>
+        <div class="contact-actions reveal">
+          <!-- PLATZHALTER: E-Mail bestätigen / anpassen -->
+          <a href="mailto:knabe93@googlemail.com?subject=Anfrage%20Website" class="btn btn-accent btn-lg">E-Mail schreiben</a>
+          <a href="https://www.linkedin.com/in/kevin-knabe-2bb692262/" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <p class="contact-note">
+          Oder direkt: <a href="mailto:knabe93@googlemail.com">knabe93@googlemail.com</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="jahr">2026</span> Kevin Knabe</span>
+      <!-- HINWEIS: Bei geschäftlicher Nutzung in DE ist ein Impressum Pflicht. -->
+      <a href="#impressum">Impressum</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
