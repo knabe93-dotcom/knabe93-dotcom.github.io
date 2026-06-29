@@ -57,4 +57,44 @@
     // Fallback: alles sichtbar
     reveals.forEach(function (el) { el.classList.add("is-visible"); });
   }
+
+  /* ---- Header: transparent über dem Hero, hell beim Scrollen ---- */
+  var header = document.querySelector(".site-header");
+  var heroEl = document.getElementById("hero");
+  if (header && heroEl) {
+    var onScroll = function () {
+      if (window.scrollY > heroEl.offsetHeight - 90) header.classList.add("is-solid");
+      else header.classList.remove("is-solid");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+  }
+
+  /* ---- Laufender Code-Hintergrund im Hero ---- */
+  var heroCode = document.getElementById("heroCode");
+  if (heroCode) {
+    var L = [
+      '<span class="cc">// Relaunch: alte Seite -> moderne Website</span>',
+      '<span class="ct">&lt;section</span> <span class="ca">class</span>=<span class="cs">"hero"</span><span class="ct">&gt;</span>',
+      '  <span class="ct">&lt;h1&gt;</span>Frisches Brot. Jeden Morgen.<span class="ct">&lt;/h1&gt;</span>',
+      '  <span class="ct">&lt;a</span> <span class="ca">href</span>=<span class="cs">"#kontakt"</span><span class="ct">&gt;</span>Anfragen<span class="ct">&lt;/a&gt;</span>',
+      '<span class="ct">&lt;/section&gt;</span>',
+      '',
+      '<span class="ck">.hero</span> {',
+      '  <span class="ck">display</span>: <span class="cv">grid</span>;',
+      '  <span class="ck">background</span>: <span class="cv">#2b4dff</span>;',
+      '  <span class="ck">border-radius</span>: <span class="cv">18px</span>;',
+      '}',
+      '',
+      '<span class="ck">const</span> site = <span class="ca">await</span> build({',
+      '  <span class="ck">responsive</span>: <span class="cv">true</span>,',
+      '  <span class="ck">ladezeit</span>: <span class="cs">"&lt; 1s"</span>,',
+      '  <span class="ck">mobil</span>: <span class="cv">true</span>,',
+      '});',
+      ''
+    ];
+    var block = L.join("\n");
+    heroCode.innerHTML = '<div class="hero-code-track">' + block + "\n" + block + "\n" + block + "</div>";
+  }
 })();

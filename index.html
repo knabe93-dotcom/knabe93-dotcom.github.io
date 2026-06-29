@@ -19,12 +19,20 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600;1,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
+
+  <!-- ====== Obere Info-Leiste ====== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span class="tb-text">✓ Kostenloses Erstgespräch · ✓ Antwort innerhalb von 24&nbsp;Std.</span>
+      <a href="#kontakt">Projekt anfragen →</a>
+    </div>
+  </div>
 
   <!-- ====== Navigation ====== -->
   <header class="site-header" id="seitenkopf">
@@ -53,17 +61,19 @@
 
     <!-- ====== Hero ====== -->
     <section class="hero" id="hero">
-      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-code" id="heroCode"></div>
+        <div class="hero-bg-overlay"></div>
+      </div>
       <div class="container hero-inner">
         <span class="version-chip reveal">
           <span class="v-old">deine-firma.de · v2005</span>
           <span class="v-arrow">→</span>
           <span class="v-new">v2026</span>
         </span>
-        <p class="hero-eyebrow reveal">Webentwicklung aus deiner Region</p>
         <h1 class="hero-title reveal">
-          Verkaufsstarke Websites für Unternehmen, die noch im
-          <span class="hl">Jahr 2005</span> feststecken.
+          Verkaufsstarke Websites für Unternehmen,<br />
+          die noch im <em>Jahr 2005</em> feststecken.
         </h1>
         <p class="hero-sub reveal">
           Ich verwandle veraltete, langsame Internetauftritte in moderne Websites,

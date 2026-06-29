@@ -2,7 +2,7 @@
    Kevin Knabe – Portfolio
    Hell & premium. Signature: "Version-Upgrade"-Motiv (Mono-Labels,
    v2005 → v2026), das Vorher/Nachher als These.
-   Typo: Bricolage Grotesque (Display) · Inter (Text) · JetBrains Mono (Labels)
+   Typo: Playfair Display (Display, "Classic Elegant") · Inter (Text) · JetBrains Mono (Labels)
    ============================================================ */
 
 :root {
@@ -17,6 +17,7 @@
   --accent:     #2b4dff;   /* Kobalt */
   --accent-ink: #1c33cc;   /* dunkler – Links/Hover */
   --accent-wash:#eef1ff;   /* heller Akzent-Hintergrund */
+  --accent-light:#8fb0ff;  /* heller Akzent auf Dunkel */
   --old:        #9a7b3f;   /* Sepia – "2005" */
 
   /* Maße */
@@ -27,7 +28,7 @@
 
   /* Typo */
   --font-body:    "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  --font-display: "Bricolage Grotesque", var(--font-body);
+  --font-display: "Playfair Display", Georgia, serif;
   --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --shadow:    0 24px 60px -28px rgba(14,17,22,.22);
@@ -84,7 +85,29 @@ img { max-width: 100%; display: block; }
 .btn-note { font-weight: 400; opacity: .85; }
 
 /* ---------- Header / Nav ---------- */
-.site-header { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); background: rgba(247,248,250,.8); border-bottom: 1px solid var(--line); }
+/* Obere Info-Leiste (ehrlich, statt Awards) */
+.topbar { background: var(--accent-wash); color: var(--ink); font-size: .85rem; border-bottom: 1px solid #dde3ff; }
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 40px; }
+.topbar-inner .tb-text { color: var(--ink-soft); }
+.topbar-inner a { font-weight: 600; color: var(--accent-ink); }
+@media (max-width: 560px) { .topbar-inner .tb-text { display: none; } .topbar-inner { justify-content: center; } }
+
+/* Header: transparent über dem (dunklen) Hero, hell beim Scrollen */
+.site-header { position: sticky; top: 0; z-index: 100; background: transparent; border-bottom: 1px solid transparent; transition: background .3s ease, border-color .3s ease; }
+.site-header .logo { color: #fff; }
+.site-header .logo-mark { background: #fff; color: #0a0f1f; }
+.site-header .nav-menu a { color: rgba(255,255,255,.82); }
+.site-header .nav-menu a:hover { color: #fff; }
+.site-header .nav-toggle { border-color: rgba(255,255,255,.4); }
+.site-header .nav-toggle span { background: #fff; }
+.site-header.is-solid { background: rgba(247,248,250,.85); backdrop-filter: blur(12px); border-bottom-color: var(--line); }
+.site-header.is-solid .logo { color: var(--ink); }
+.site-header.is-solid .logo-mark { background: var(--ink); color: #fff; }
+.site-header.is-solid .nav-menu a { color: var(--ink-soft); }
+.site-header.is-solid .nav-menu a:hover { color: var(--ink); }
+.site-header.is-solid .nav-toggle { border-color: var(--line-strong); }
+.site-header.is-solid .nav-toggle span { background: var(--ink); }
+.site-header .nav-menu .nav-cta, .site-header.is-solid .nav-menu .nav-cta { color: #fff; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 68px; }
 .logo { display: flex; align-items: center; gap: .6rem; color: var(--ink); font-weight: 700; font-family: var(--font-display); }
 .logo:hover { text-decoration: none; }
@@ -95,24 +118,39 @@ img { max-width: 100%; display: block; }
 .nav-menu .nav-cta { color: #fff; }
 .nav-toggle { display: none; }
 
-/* ---------- Hero ---------- */
-.hero { position: relative; padding: clamp(4rem, 12vh, 8rem) 0 clamp(3rem, 8vh, 6rem); overflow: hidden; }
-.hero-glow { position: absolute; inset: -30% -10% auto auto; width: 620px; height: 620px; pointer-events: none; z-index: 0;
-  background: radial-gradient(closest-side, rgba(43,77,255,.10), transparent 70%); }
-.hero-inner { position: relative; z-index: 1; max-width: 860px; }
-.hero-title { font-size: clamp(2.4rem, 6.4vw, 4.4rem); font-weight: 700; }
-.hero-title .hl { color: var(--accent); white-space: nowrap; }
-.hero-sub { font-size: clamp(1.08rem, 2.3vw, 1.32rem); color: var(--ink-soft); max-width: 640px; margin-top: 1.3rem; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
-.hero-trust { display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; margin: 2rem 0 0; padding: 0; list-style: none; color: var(--ink-soft); font-size: .92rem; }
+/* ---------- Hero (dunkel, mit laufendem Code-Hintergrund) ---------- */
+.hero { position: relative; isolation: isolate; overflow: hidden; background: #080c1a; color: #fff; padding: clamp(5rem, 14vh, 9rem) 0 clamp(3.5rem, 9vh, 6.5rem); }
+.hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-code { position: absolute; inset: 0; padding-left: clamp(1rem, 5vw, 5rem); font-family: var(--font-mono); font-size: clamp(12px, 1.35vw, 15px); line-height: 2; white-space: pre; color: #4d5d80; opacity: .55; }
+.hero-code-track { animation: codescroll 40s linear infinite; will-change: transform; }
+@keyframes codescroll { from { transform: translateY(0); } to { transform: translateY(-33.333%); } }
+.hero-code .ct { color: #7aa2ff; }   /* Tag */
+.hero-code .ca { color: #b6a4ff; }   /* Attribut */
+.hero-code .cs { color: #5fd0a8; }   /* String */
+.hero-code .ck { color: #79b8ff; }   /* Property/Keyword */
+.hero-code .cv { color: #e0a96b; }   /* Wert/Zahl */
+.hero-code .cc { color: #3f4d6b; font-style: italic; }  /* Kommentar */
+.hero-bg-overlay { position: absolute; inset: 0;
+  background: radial-gradient(115% 80% at 25% 25%, rgba(8,12,26,.60), rgba(8,12,26,.93) 75%),
+              linear-gradient(180deg, rgba(8,12,26,.50), rgba(8,12,26,.86)); }
+
+.hero-inner { position: relative; z-index: 2; max-width: 880px; }
+.hero-title { font-family: var(--font-display); color: #fff; font-weight: 700; font-size: clamp(2.5rem, 6.6vw, 4.6rem); line-height: 1.06; letter-spacing: -.01em; }
+.hero-title em { font-style: italic; font-weight: 600; background: linear-gradient(90deg, #dfe7ff, #8fb0ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-sub { font-size: clamp(1.08rem, 2.3vw, 1.3rem); color: rgba(255,255,255,.72); max-width: 620px; margin-top: 1.4rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem; }
+.hero .btn-ghost { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.25); color: #fff; }
+.hero .btn-ghost:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.12); }
+.hero-trust { display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; margin: 2.2rem 0 0; padding: 0; list-style: none; color: rgba(255,255,255,.62); font-size: .92rem; }
 .hero-trust span { white-space: nowrap; }
 
-/* Version-Chip (Signature) */
-.version-chip { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-mono); font-size: .9rem;
-  background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 999px; padding: .45rem .9rem; margin-bottom: 1.4rem; box-shadow: var(--shadow-sm); }
-.version-chip .v-old { color: var(--old); text-decoration: line-through; }
-.version-chip .v-arrow { color: var(--ink-soft); }
-.version-chip .v-new { color: var(--accent); font-weight: 600; }
+/* Version-Chip (Signature) – auf dunklem Hero */
+.version-chip { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-mono); font-size: .88rem; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: .45rem .9rem; margin-bottom: 1.5rem; }
+.version-chip .v-old { color: #c9ad79; text-decoration: line-through; }
+.version-chip .v-arrow { color: rgba(255,255,255,.5); }
+.version-chip .v-new { color: #8fb0ff; font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) { .hero-code-track { animation: none !important; } }
 
 /* ---------- Sektionen ---------- */
 .section { padding: clamp(3.5rem, 9vh, 6.5rem) 0; }
