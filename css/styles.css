@@ -180,6 +180,46 @@ img { max-width: 100%; display: block; }
 .legal p { color: var(--ink-soft); }
 .legal-note { font-family: var(--font-mono); font-size: .8rem; margin-top: 2.5rem; }
 
+/* ============================================================
+   UI/UX-Politur: Hero-Video, Lauftext, Vergleichsbild,
+   Karten-Overlay, Scroll-Hinweis, Mikrointeraktionen
+   ============================================================ */
+
+/* Hero-Hintergrundvideo */
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+@media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
+
+/* Scroll-Hinweis */
+.hero-scroll { position: absolute; left: 50%; bottom: 1.5rem; transform: translateX(-50%); width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.4); border-radius: 14px; display: grid; justify-items: center; padding-top: 7px; z-index: 2; }
+.hero-scroll:hover { border-color: #fff; }
+.hero-scroll-dot { width: 4px; height: 8px; border-radius: 2px; background: #fff; animation: scrolldot 1.6s ease-in-out infinite; }
+@keyframes scrolldot { 0%,100% { transform: translateY(0); opacity: .9; } 50% { transform: translateY(8px); opacity: .25; } }
+
+/* Lauftext-Band */
+.marquee { overflow: hidden; background: var(--bg-2); border-block: 1px solid var(--line); padding: .85rem 0; }
+.marquee-track { display: inline-flex; align-items: center; gap: 1.6rem; white-space: nowrap; animation: marquee 30s linear infinite; }
+.marquee-track span { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--ink); }
+.marquee-track b { color: var(--accent); font-style: normal; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* Vorher/Nachher als Bild */
+.compare { margin: 0 auto; max-width: 960px; border: 1px solid var(--line-strong); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: #fff; line-height: 0; }
+.compare img { width: 100%; height: auto; display: block; }
+
+/* Projekt-Karten: Beschriftung als Overlay aufs Bild */
+.work { position: relative; }
+.work figcaption { position: absolute; left: 0; right: 0; bottom: 0; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: .1rem; padding: 2.6rem 1.2rem .95rem; background: linear-gradient(to top, rgba(6,9,18,.92), rgba(6,9,18,0)); color: #fff; }
+.work .work-cat { color: #fff; }
+.work .work-meta { color: var(--accent-light); }
+
+/* Button-Mikrointeraktion */
+.btn svg { transition: transform .2s ease; }
+.btn:hover svg { transform: translateX(3px); }
+
+/* Karten-Hover-Glow */
+.card:hover, .work:hover { box-shadow: 0 0 0 1px var(--accent), var(--shadow); }
+
 /* ---------- Badge ---------- */
 .badge { display: inline-block; padding: .3rem .85rem; border-radius: 999px; font-family: var(--font-mono); font-size: .74rem; font-weight: 500; letter-spacing: .02em; color: var(--accent-light); background: var(--accent-wash); border: 1px solid rgba(77,107,255,.35); }
 .badge.center { display: block; width: fit-content; margin: 0 auto 1rem; }
