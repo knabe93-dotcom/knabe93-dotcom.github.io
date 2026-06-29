@@ -4,29 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ====== SEO / Meta (PLATZHALTER ggf. anpassen) ====== -->
-  <title>Kevin Knabe – Moderne Websites für lokale Unternehmen</title>
-  <meta name="description" content="Ich baue moderne, schnelle Websites für Unternehmen, die noch veraltete Seiten nutzen. Webentwicklung aus deiner Region – handgemacht, performant, mobilfreundlich." />
+  <!-- ====== SEO / Meta ====== -->
+  <title>Kevin Knabe – Moderne Websites für Unternehmen in Karlsruhe</title>
+  <meta name="description" content="Ich baue moderne, schnelle Websites für Unternehmen in der Region Karlsruhe. Mein Vorteil: erst die Website, dann die Bezahlung. Kostenloses Erstgespräch." />
   <meta name="author" content="Kevin Knabe" />
-  <meta name="theme-color" content="#0b0f17" />
+  <meta name="theme-color" content="#080c1a" />
 
-  <!-- Open Graph (für Vorschau beim Teilen) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Kevin Knabe – Moderne Websites für lokale Unternehmen" />
-  <meta property="og:description" content="Webentwicklung aus deiner Region – handgemacht, performant, mobilfreundlich." />
+  <meta property="og:title" content="Kevin Knabe – Moderne Websites für Unternehmen in Karlsruhe" />
+  <meta property="og:description" content="Moderne Websites aus der Region Karlsruhe – erst die Website, dann die Bezahlung." />
   <meta property="og:locale" content="de_DE" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- Schriften -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600;1,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
+
+  <!-- ====== Obere Info-Leiste ====== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span class="tb-text">✓ Kostenloses Erstgespräch · ✓ Antwort innerhalb von 24&nbsp;Std.</span>
+      <a href="#kontakt">Projekt anfragen →</a>
+    </div>
+  </div>
 
   <!-- ====== Navigation ====== -->
   <header class="site-header" id="seitenkopf">
@@ -41,10 +47,11 @@
           <span></span><span></span><span></span>
         </button>
         <ul class="nav-menu" id="navMenu">
-          <li><a href="#ueber">Über mich</a></li>
           <li><a href="#leistungen">Leistungen</a></li>
-          <li><a href="#portfolio">Vorher/Nachher</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#referenzen">Vorher/Nachher</a></li>
+          <li><a href="#branchen">Projekte</a></li>
+          <li><a href="#ablauf">Ablauf</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#kontakt" class="btn btn-accent btn-sm nav-cta">Projekt anfragen</a></li>
         </ul>
       </nav>
@@ -55,56 +62,261 @@
 
     <!-- ====== Hero ====== -->
     <section class="hero" id="hero">
-      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-bg" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+          <source src="assets/projekte/backround.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-bg-overlay"></div>
+      </div>
       <div class="container hero-inner">
-        <p class="hero-eyebrow reveal">Webentwicklung aus deiner Region</p>
         <h1 class="hero-title reveal">
-          Moderne Websites für Unternehmen, die noch im
-          <span class="gradient-text">Jahr 2005</span> feststecken.
+          Verkaufsstarke Websites für Unternehmen,<br />
+          die noch im <em>Jahr 2005</em> feststecken.
         </h1>
         <p class="hero-sub reveal">
-          Ich verwandle veraltete, langsame Internetauftritte in schnelle,
-          mobilfreundliche Websites, die heute Kunden gewinnen – handgemacht,
-          ohne Baukasten-Ballast.
+          Ich baue moderne, schnelle Websites für Unternehmen aus der Region Karlsruhe –
+          und das Beste: Du zahlst erst, wenn deine Seite fertig ist und dir gefällt.
         </p>
         <div class="hero-actions reveal">
-          <a href="#portfolio" class="btn btn-accent">Vorher/Nachher ansehen</a>
-          <a href="#kontakt" class="btn btn-ghost">Projekt anfragen</a>
+          <a href="#kontakt" class="btn btn-accent">Projekt anfragen <span class="btn-note">– in 1&nbsp;Minute</span></a>
+          <a href="#referenzen" class="btn btn-ghost">Vorher/Nachher ansehen</a>
         </div>
-        <ul class="hero-stats reveal" aria-label="Eckdaten">
-          <li><strong>100 %</strong><span>handgeschrieben</span></li>
-          <li><strong>&lt; 1 s</strong><span>Ladezeit-Ziel</span></li>
-          <li><strong>Mobil</strong><span>zuerst gedacht</span></li>
+        <p class="hero-trust reveal">
+          <span>✓ Kostenloses Erstgespräch</span>
+          <span>✓ Antwort innerhalb von 24&nbsp;Std.</span>
+          <span>✓ Du zahlst erst bei Zufriedenheit</span>
+        </p>
+        <a class="hero-scroll" href="#marquee" aria-label="Mehr entdecken"><span class="hero-scroll-dot"></span></a>
+      </div>
+    </section>
+
+    <!-- ====== Lauftext-Band ====== -->
+    <div class="marquee" id="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Webdesign</span><b>✦</b><span>Website-Relaunch</span><b>✦</b><span>E-Commerce</span><b>✦</b><span>SEO-Grundlagen</span><b>✦</b><span>Mobil-optimiert</span><b>✦</b><span>Erst die Website, dann die Bezahlung</span><b>✦</b><span>Webdesign</span><b>✦</b><span>Website-Relaunch</span><b>✦</b><span>E-Commerce</span><b>✦</b><span>SEO-Grundlagen</span><b>✦</b><span>Mobil-optimiert</span><b>✦</b><span>Erst die Website, dann die Bezahlung</span><b>✦</b>
+      </div>
+    </div>
+
+    <!-- ====== Problem / Positionierung ====== -->
+    <section class="section section-alt">
+      <div class="container">
+        <p class="eyebrow center reveal">Das Problem</p>
+        <h2 class="section-title center reveal">Eine veraltete Website kostet dich Kunden</h2>
+        <p class="section-lead center reveal">
+          Über die Hälfte aller Besucher kommt heute vom Smartphone. Lädt deine Seite langsam,
+          sieht sie aus wie von 2005 oder ist am Handy kaum bedienbar, sind sie wieder weg –
+          bevor sie überhaupt gesehen haben, was du anbietest.
+        </p>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">📱</div>
+            <h3>Nicht mobilfreundlich</h3>
+            <p>Auf dem Handy muss man zoomen und schieben. Genau dort sind aber die meisten Kunden.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">🐌</div>
+            <h3>Zu langsam</h3>
+            <p>Jede Sekunde Ladezeit kostet Besucher. Alte Seiten brauchen oft ein Vielfaches.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">🔍</div>
+            <h3>Bei Google unsichtbar</h3>
+            <p>Ohne moderne Grundlagen taucht deine Seite in der Suche kaum auf.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Leistungen ====== -->
+    <section class="section" id="leistungen">
+      <div class="container">
+        <p class="eyebrow center reveal">Leistungen</p>
+        <h2 class="section-title center reveal">Was ich für dich mache</h2>
+        <p class="section-lead center reveal">Website Building mit einem klaren Vorteil: Du zahlst erst, wenn deine Seite steht.</p>
+        <div class="cards">
+          <article class="card card-feature reveal">
+            <div class="card-icon" aria-hidden="true">↻</div>
+            <h3>Website-Relaunch</h3>
+            <p>Aus deinem alten Auftritt wird eine moderne, schnelle Seite – mobilfreundlich und bei Google auffindbar.</p>
+          </article>
+          <article class="card card-feature reveal">
+            <div class="card-icon" aria-hidden="true">✦</div>
+            <h3>Neue Website</h3>
+            <p>Noch gar keine Seite? Ich baue von Grund auf eine, die zu deinem Betrieb passt – inklusive Kontakt &amp; Anfahrt.</p>
+          </article>
+          <article class="card card-feature reveal">
+            <div class="card-icon" aria-hidden="true">⚙</div>
+            <h3>Wartung &amp; Pflege</h3>
+            <p>Updates, kleine Änderungen und technische Betreuung, damit deine Seite dauerhaft sicher und aktuell bleibt.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Philosophie (gepaarte Aussagen) ====== -->
+    <section class="section section-alt">
+      <div class="container">
+        <p class="eyebrow center reveal">Versprechen</p>
+        <h2 class="section-title center reveal">Mein Versprechen an dich</h2>
+        <div class="philosophy">
+          <div class="philo-pair reveal">
+            <p class="philo-no">Kein anonymer Baukasten.</p>
+            <p class="philo-yes">Ein echter Ansprechpartner – ich.</p>
+          </div>
+          <div class="philo-pair reveal">
+            <p class="philo-no">Kein Template von der Stange.</p>
+            <p class="philo-yes">Handgeschrieben, passend für deinen Betrieb.</p>
+          </div>
+          <div class="philo-pair reveal">
+            <p class="philo-no">Kein Technik-Kauderwelsch.</p>
+            <p class="philo-yes">Verständlich erklärt, Schritt für Schritt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Referenzen: Vorher/Nachher ====== -->
+    <section class="section" id="referenzen">
+      <div class="container">
+        <span class="badge center reveal">Vorher / Nachher</span>
+        <h2 class="section-title center reveal">Von Grund auf professionell gecodet</h2>
+        <p class="section-lead center reveal">
+          Kein Baukasten, kein Template von der Stange – jede Website schreibe ich von Hand.
+          Das macht sie schneller, individueller und besser auffindbar. So sieht der Unterschied aus:
+        </p>
+
+        <figure class="compare reveal">
+          <img src="assets/projekte/vorhernachher.png" alt="Vorher/Nachher-Vergleich eines Website-Redesigns" loading="lazy" />
+        </figure>
+
+        <p class="bna-hint center">
+          Lust auf ein interaktives Beispiel?
+          <a href="demos/neu-modern.html" target="_blank" rel="noopener">Modernes Demo</a>
+          &nbsp;·&nbsp;
+          <a href="demos/alt-2005.html" target="_blank" rel="noopener">„2005er"-Demo</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ====== Projekte / Branchen ====== -->
+    <section class="section" id="branchen">
+      <div class="container">
+        <p class="eyebrow center reveal">Referenzen</p>
+        <h2 class="section-title center reveal">Branchen, für die ich Websites baue</h2>
+        <p class="section-lead center reveal">Ein Auszug meiner Projekte – für ganz unterschiedliche lokale Betriebe.</p>
+        <div class="work-grid">
+          <!-- Bilder einfügen: Screenshots als JPG/PNG nach assets/projekte/ legen und unten src + das TODO entfernen. -->
+          <figure class="work reveal">
+            <img class="work-img" src="assets/projekte/dasrad.png" alt="DASRAD – Website für Fahrrad &amp; E-Commerce" loading="lazy" width="800" height="500" />
+            <figcaption><span class="work-cat">Fahrrad &amp; E-Commerce</span><span class="work-meta">DASRAD</span></figcaption>
+          </figure>
+          <figure class="work reveal">
+            <img class="work-img" src="assets/projekte/kanzlei.png" alt="Website für eine Rechtsanwaltskanzlei" loading="lazy" width="800" height="500" />
+            <figcaption><span class="work-cat">Recht &amp; Kanzlei</span><span class="work-meta">Rechtsberatung</span></figcaption>
+          </figure>
+          <figure class="work reveal">
+            <img class="work-img" src="assets/projekte/luxe-salon.png" alt="Luxe Salon – Website für Beauty &amp; Friseur" loading="lazy" width="800" height="500" />
+            <figcaption><span class="work-cat">Beauty &amp; Friseur</span><span class="work-meta">Luxe Salon</span></figcaption>
+          </figure>
+          <figure class="work reveal">
+            <img class="work-img" src="assets/projekte/vista-suites.png" alt="Vista Suites – Website für Hotel &amp; Hospitality" loading="lazy" width="800" height="500" />
+            <figcaption><span class="work-cat">Hotel &amp; Hospitality</span><span class="work-meta">Vista Suites</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Standards ====== -->
+    <section class="section section-alt">
+      <div class="container">
+        <p class="eyebrow center reveal">Standards</p>
+        <h2 class="section-title center reveal">In jeder Website inklusive</h2>
+        <p class="section-lead center reveal">Standards, die heute selbstverständlich sein sollten – bei mir sind sie es.</p>
+        <ul class="standards reveal">
+          <li><span aria-hidden="true">📱</span> Mobil-optimiert</li>
+          <li><span aria-hidden="true">⚡</span> Schnelle Ladezeit</li>
+          <li><span aria-hidden="true">🔒</span> DSGVO-konform</li>
+          <li><span aria-hidden="true">🔍</span> SEO-Grundlagen</li>
+          <li><span aria-hidden="true">♿</span> Barrierearm</li>
+          <li><span aria-hidden="true">✉️</span> Kontaktformular</li>
+          <li><span aria-hidden="true">🔐</span> SSL-Verschlüsselung</li>
+          <li><span aria-hidden="true">🧹</span> Sauberer Code</li>
         </ul>
       </div>
     </section>
 
-    <!-- ====== Über mich ====== -->
+    <!-- ====== Ablauf / Prozess ====== -->
+    <section class="section" id="ablauf">
+      <div class="container">
+        <p class="eyebrow center reveal">Ablauf</p>
+        <h2 class="section-title center reveal">In 4 Schritten zur neuen Website</h2>
+        <p class="section-lead center reveal">Klar, transparent und ohne Stress für dich.</p>
+        <ol class="process">
+          <li class="reveal">
+            <span class="process-num">01</span>
+            <h3>Kostenloses Erstgespräch</h3>
+            <p>Wir klären, was du brauchst und was deine Website leisten soll – unverbindlich.</p>
+          </li>
+          <li class="reveal">
+            <span class="process-num">02</span>
+            <h3>Konzept &amp; Angebot</h3>
+            <p>Du bekommst einen klaren Vorschlag und einen fairen Festpreis. Keine versteckten Kosten.</p>
+          </li>
+          <li class="reveal">
+            <span class="process-num">03</span>
+            <h3>Ich baue deine Seite</h3>
+            <p>Du lehnst dich zurück und bekommst regelmäßig Zwischenstände zu sehen.</p>
+          </li>
+          <li class="reveal">
+            <span class="process-num">04</span>
+            <h3>Live-Gang &amp; Übergabe</h3>
+            <p>Deine Website geht online. Auf Wunsch kümmere ich mich auch danach um die Pflege.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====== Garantie ====== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="guarantee reveal">
+          <div class="guarantee-badge" aria-hidden="true">✓</div>
+          <h2>Erst die Website, dann die Bezahlung</h2>
+          <p>
+            Mein Versprechen: Du gehst mit keinem Cent in Vorleistung. Wir bauen deine Website,
+            du siehst das fertige Ergebnis – und bezahlt wird erst, wenn du wirklich zufrieden bist.
+            Kein Risiko, keine Katze im Sack.
+          </p>
+          <a href="#kontakt" class="btn btn-accent btn-lg">Unverbindlich anfragen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Über mich (kompakt) ====== -->
     <section class="section" id="ueber">
       <div class="container about-grid">
         <div class="about-text reveal">
-          <h2 class="section-title">Über mich</h2>
-          <!-- PLATZHALTER: Bitte durch deinen echten Werdegang ersetzen -->
+          <p class="eyebrow">Über mich</p>
+          <h2 class="section-title">Wer hinter den Websites steckt</h2>
           <p>
-            Hallo, ich bin <strong>Kevin Knabe</strong>. Ich entwickle Websites
-            für kleine und mittlere Unternehmen in meiner Region. Mein Fokus:
-            Seiten, die schnell laden, auf jedem Smartphone gut aussehen und
-            neue Kundinnen und Kunden bringen.
+            Hallo, ich bin <strong>Kevin Knabe</strong> aus Karlsruhe. Aus Stationen als
+            Manager bei <strong>HB&nbsp;Leisure&nbsp;Ltd.</strong>, als <strong>Marketing&nbsp;Manager</strong>
+            bei ANYKO und als <strong>E-Commerce&nbsp;Manager</strong> habe ich eines gelernt:
+            Eine Website ist nur dann gut, wenn sie verkauft.
           </p>
           <p>
-            Viele Firmen arbeiten noch mit Internetauftritten von vor 15&nbsp;Jahren –
-            unübersichtlich, langsam und am Handy kaum benutzbar. Genau das ändere ich:
-            mit sauberem, handgeschriebenem Code statt überladenem Baukasten.
+            Dieses Wissen aus Marketing und Online-Handel bringe ich in jede Seite ein, die ich baue –
+            handgeschrieben, schnell und genau auf das ausgerichtet, was deinem Unternehmen wirklich Kunden bringt.
           </p>
-          <!-- /PLATZHALTER -->
           <ul class="skill-tags" aria-label="Fähigkeiten">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Responsive Design</li>
-            <li>SEO-Basics</li>
+            <li>Marketing-Strategie</li>
+            <li>E-Commerce</li>
+            <li>Conversion-Optimierung</li>
+            <li>SEO-Grundlagen</li>
+            <li>Responsive Webdesign</li>
+            <li>HTML / CSS / JS</li>
             <li>Performance</li>
-            <li>Barrierefreiheit</li>
+            <li>Branding</li>
           </ul>
         </div>
         <aside class="about-card reveal" aria-hidden="true">
@@ -115,119 +327,52 @@
       </div>
     </section>
 
-    <!-- ====== Leistungen ====== -->
-    <section class="section section-alt" id="leistungen">
-      <div class="container">
-        <h2 class="section-title center reveal">Leistungen</h2>
-        <p class="section-lead center reveal">Klare Angebote – ohne Fachchinesisch.</p>
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">↻</div>
-            <h3>Website-Relaunch</h3>
-            <p>Aus deiner alten Seite wird ein moderner, schneller Auftritt – mobilfreundlich und auffindbar bei Google.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">✦</div>
-            <h3>Neue Website</h3>
-            <p>Du hast noch keine Seite? Ich baue von Grund auf eine, die zu deinem Betrieb passt – inklusive Kontakt &amp; Anfahrt.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">⚙</div>
-            <h3>Wartung &amp; Pflege</h3>
-            <p>Updates, kleine Änderungen und technische Betreuung, damit deine Seite dauerhaft sicher und aktuell bleibt.</p>
-          </article>
+    <!-- ====== FAQ ====== -->
+    <section class="section section-alt" id="faq">
+      <div class="container faq-inner">
+        <p class="eyebrow center reveal">FAQ</p>
+        <h2 class="section-title center reveal">Häufige Fragen</h2>
+        <div class="faq reveal">
+          <details>
+            <summary>Was kostet eine Website?</summary>
+            <p>Das hängt vom Umfang ab. Nach dem kostenlosen Erstgespräch bekommst du einen klaren Festpreis – ohne versteckte Kosten. <!-- PLATZHALTER: ggf. Preisrahmen ergänzen, z.B. "ab X €" --></p>
+          </details>
+          <details>
+            <summary>Wie lange dauert es, bis meine Seite fertig ist?</summary>
+            <p>Eine typische Unternehmensseite ist meist in wenigen Wochen fertig – abhängig davon, wie schnell Texte und Bilder vorliegen.</p>
+          </details>
+          <details>
+            <summary>Brauche ich technisches Wissen?</summary>
+            <p>Nein. Ich kümmere mich um die Technik und erkläre dir alles verständlich. Du musst dich um nichts Technisches sorgen.</p>
+          </details>
+          <details>
+            <summary>Kümmerst du dich auch um Pflege und Updates?</summary>
+            <p>Auf Wunsch ja. Ich biete laufende Wartung an, damit deine Seite sicher und aktuell bleibt.</p>
+          </details>
+          <details>
+            <summary>Ist die Seite DSGVO-konform und mit Impressum?</summary>
+            <p>Ja. Datenschutz und ein rechtskonformes Impressum gehören für mich zu jeder geschäftlichen Website dazu.</p>
+          </details>
         </div>
-        <!-- PLATZHALTER: Preisrahmen ergänzen, falls gewünscht -->
       </div>
     </section>
 
-    <!-- ====== Portfolio: Vorher/Nachher ====== -->
-    <section class="section" id="portfolio">
-      <div class="container">
-        <h2 class="section-title center reveal">Vorher / Nachher</h2>
-        <p class="section-lead center reveal">
-          Zieh den Regler – links der typische „2005er"-Auftritt, rechts dieselbe Firma,
-          neu gedacht. (Beispiel: <em>Bäckerei Lindenhof</em>)
-        </p>
-
-        <!-- Vorher/Nachher-Slider -->
-        <div class="bna" id="bna" aria-label="Vorher-Nachher-Vergleich, mit Pfeiltasten bedienbar">
-          <!-- NACHHER (liegt unten / volle Breite) -->
-          <div class="bna-layer bna-after" aria-hidden="false">
-            <div class="mock mock-new">
-              <div class="mock-new-nav">
-                <span class="mock-new-logo">Bäckerei&nbsp;Lindenhof</span>
-                <span class="mock-new-links"><i></i><i></i><i></i></span>
-              </div>
-              <div class="mock-new-hero">
-                <p class="mock-new-eyebrow">Handwerksbäckerei seit 1979</p>
-                <h4>Frisches Brot.<br />Jeden Morgen.</h4>
-                <span class="mock-new-btn">Sortiment ansehen</span>
-              </div>
-              <div class="mock-new-row">
-                <span class="mock-new-tile"></span>
-                <span class="mock-new-tile"></span>
-                <span class="mock-new-tile"></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- VORHER (liegt oben, wird vom Regler beschnitten) -->
-          <div class="bna-layer bna-before" id="bnaBefore">
-            <div class="mock mock-old">
-              <div class="mock-old-top">★ Willkommen auf der Homepage der Bäckerei Lindenhof ★</div>
-              <div class="mock-old-banner">BÄCKEREI LINDENHOF</div>
-              <marquee class="mock-old-marquee">Neu: Jetzt auch sonntags geöffnet!!! +++ Beste Brötchen der Stadt +++</marquee>
-              <table class="mock-old-table">
-                <tr>
-                  <td class="mock-old-menu">
-                    » Startseite<br />» Über uns<br />» Produkte<br />» Kontakt<br />» Gästebuch
-                  </td>
-                  <td class="mock-old-content">
-                    <p>Herzlich willkommen!!!</p>
-                    <p>Wir backen seit 1979 mit Liebe. Schauen Sie doch mal vorbei.</p>
-                    <p class="mock-old-blink">!! NEU: Online-Bestellung bald verfügbar !!</p>
-                    <div class="mock-old-counter">Besucher: 0001337</div>
-                  </td>
-                </tr>
-              </table>
-              <div class="mock-old-foot">Best viewed with Internet Explorer 6 • 800×600</div>
-            </div>
-          </div>
-
-          <!-- Regler-Griff -->
-          <input type="range" min="0" max="100" value="50" class="bna-range" id="bnaRange"
-                 aria-label="Vergleichsregler Vorher/Nachher" />
-          <div class="bna-divider" id="bnaDivider" aria-hidden="true">
-            <span class="bna-handle">⇆</span>
-          </div>
-          <span class="bna-tag bna-tag-before">Vorher</span>
-          <span class="bna-tag bna-tag-after">Nachher</span>
-        </div>
-
-        <p class="bna-hint center">
-          <a href="demos/alt-2005.html" target="_blank" rel="noopener">Alte Version öffnen</a>
-          &nbsp;·&nbsp;
-          <a href="demos/neu-modern.html" target="_blank" rel="noopener">Neue Version öffnen</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- ====== Kontakt ====== -->
-    <section class="section section-alt" id="kontakt">
+    <!-- ====== Abschluss-CTA / Kontakt ====== -->
+    <section class="section" id="kontakt">
       <div class="container contact-inner">
-        <h2 class="section-title center reveal">Lass uns reden</h2>
+        <p class="eyebrow center reveal">Kontakt</p>
+        <h2 class="section-title center reveal">Bereit für einen Auftritt, der Kunden gewinnt?</h2>
         <p class="section-lead center reveal">
-          Du hast eine Website, die in die Jahre gekommen ist – oder brauchst eine neue?
-          Schreib mir, ich melde mich zeitnah.
+          Schreib mir kurz, worum es geht – ich melde mich innerhalb von 24&nbsp;Stunden mit den nächsten Schritten.
         </p>
         <div class="contact-actions reveal">
           <!-- PLATZHALTER: E-Mail bestätigen / anpassen -->
-          <a href="mailto:knabe93@googlemail.com?subject=Anfrage%20Website" class="btn btn-accent btn-lg">E-Mail schreiben</a>
+          <a href="mailto:Knabe93@gmail.com?subject=Anfrage%20Website" class="btn btn-accent btn-lg">E-Mail schreiben</a>
           <a href="https://www.linkedin.com/in/kevin-knabe-2bb692262/" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <p class="contact-note">
-          Oder direkt: <a href="mailto:knabe93@googlemail.com">knabe93@googlemail.com</a>
+          Oder direkt: <a href="mailto:Knabe93@gmail.com">Knabe93@gmail.com</a>
+          &nbsp;·&nbsp; 76344 Karlsruhe
         </p>
       </div>
     </section>
@@ -237,8 +382,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <span>© <span id="jahr">2026</span> Kevin Knabe</span>
-      <!-- HINWEIS: Bei geschäftlicher Nutzung in DE ist ein Impressum Pflicht. -->
-      <a href="#impressum">Impressum</a>
+      <div class="footer-links"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
     </div>
   </footer>
 
