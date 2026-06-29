@@ -134,4 +134,23 @@
       el.addEventListener("mouseleave", function () { el.style.transform = ""; });
     });
   }
+
+  /* ---- Hero-Parallax beim Scrollen ---- */
+  if (!reduce) {
+    var heroInner = document.querySelector(".hero-inner");
+    var heroVideo = document.querySelector(".hero-video");
+    var vh = window.innerHeight;
+    window.addEventListener("resize", function () { vh = window.innerHeight; });
+    window.addEventListener("scroll", function () {
+      var y = window.scrollY;
+      if (y > vh) return;
+      if (heroInner) {
+        heroInner.style.transform = "translateY(" + (y * 0.35) + "px)";
+        heroInner.style.opacity = String(Math.max(0, 1 - y / (vh * 0.75)));
+      }
+      if (heroVideo) {
+        heroVideo.style.transform = "scale(" + (1 + y * 0.0005) + ")";
+      }
+    }, { passive: true });
+  }
 })();

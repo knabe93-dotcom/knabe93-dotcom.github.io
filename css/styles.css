@@ -98,7 +98,7 @@ img { max-width: 100%; display: block; }
 /* Header: transparent über dem (dunklen) Hero, hell beim Scrollen */
 .site-header { position: sticky; top: 0; z-index: 100; background: rgba(8,12,26,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.08); transition: background .3s ease, border-color .3s ease; }
 .site-header .logo { color: #fff; }
-.site-header .logo-mark { background: #fff; color: #0a0f1f; }
+.site-header .logo-mark { background: transparent; }
 .site-header .nav-menu a { color: rgba(255,255,255,.82); }
 .site-header .nav-menu a:hover { color: #fff; }
 .site-header .nav-toggle { border-color: rgba(255,255,255,.4); }
@@ -108,7 +108,7 @@ img { max-width: 100%; display: block; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 68px; }
 .logo { display: flex; align-items: center; gap: .6rem; color: var(--ink); font-weight: 700; font-family: var(--font-display); }
 .logo:hover { text-decoration: none; }
-.logo-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; background: var(--ink); color: #fff; font-weight: 700; font-family: var(--font-mono); font-size: .9rem; }
+.logo-mark { display: block; width: 36px; height: 36px; border-radius: 9px; }
 .nav-menu { list-style: none; display: flex; align-items: center; gap: 1.7rem; margin: 0; padding: 0; }
 .nav-menu a { color: var(--ink-soft); font-weight: 500; font-size: .96rem; }
 .nav-menu a:hover { color: var(--ink); text-decoration: none; }
