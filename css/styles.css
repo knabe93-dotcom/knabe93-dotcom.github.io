@@ -93,7 +93,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 560px) { .topbar-inner .tb-text { display: none; } .topbar-inner { justify-content: center; } }
 
 /* Header: transparent über dem (dunklen) Hero, hell beim Scrollen */
-.site-header { position: sticky; top: 0; z-index: 100; background: transparent; border-bottom: 1px solid transparent; transition: background .3s ease, border-color .3s ease; }
+.site-header { position: sticky; top: 0; z-index: 100; background: rgba(8,12,26,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.08); transition: background .3s ease, border-color .3s ease; }
 .site-header .logo { color: #fff; }
 .site-header .logo-mark { background: #fff; color: #0a0f1f; }
 .site-header .nav-menu a { color: rgba(255,255,255,.82); }
@@ -168,6 +168,17 @@ img { max-width: 100%; display: block; }
 .card p { color: var(--ink-soft); margin: 0; }
 .card-feature { position: relative; overflow: hidden; }
 .card-feature::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--accent); }
+
+/* ---------- Projekte / Branchen ---------- */
+.work-grid { display: grid; grid-template-columns: 1fr; gap: var(--gap); max-width: 980px; margin-inline: auto; }
+.work { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.work:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); border-color: var(--line-strong); }
+.work-img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: var(--accent-wash); transition: transform .35s ease; }
+.work:hover .work-img { transform: scale(1.04); }
+.work figcaption { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding: 1.05rem 1.25rem; }
+.work-cat { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; }
+.work-meta { font-family: var(--font-mono); font-size: .78rem; color: var(--ink-soft); white-space: nowrap; }
+@media (min-width: 620px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* ---------- Badge ---------- */
 .badge { display: inline-block; padding: .3rem .85rem; border-radius: 999px; font-family: var(--font-mono); font-size: .74rem; font-weight: 500; letter-spacing: .02em; color: var(--accent); background: var(--accent-wash); border: 1px solid #d8deff; }

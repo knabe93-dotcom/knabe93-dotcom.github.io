@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Screenshot folgt">
+  <rect width="800" height="500" fill="#eef1ff"/>
+  <!-- Browserfenster -->
+  <rect x="120" y="90" width="560" height="320" rx="14" fill="#ffffff" stroke="#d2d7de"/>
+  <rect x="120" y="90" width="560" height="42" rx="14" fill="#f3f5fb"/>
+  <circle cx="148" cy="111" r="6" fill="#d2d7de"/>
+  <circle cx="170" cy="111" r="6" fill="#d2d7de"/>
+  <circle cx="192" cy="111" r="6" fill="#d2d7de"/>
+  <rect x="230" y="103" width="360" height="16" rx="8" fill="#e4e7ea"/>
+  <!-- Inhalt -->
+  <rect x="150" y="160" width="220" height="22" rx="6" fill="#2b4dff"/>
+  <rect x="150" y="196" width="300" height="12" rx="6" fill="#c7cfdb"/>
+  <rect x="150" y="216" width="260" height="12" rx="6" fill="#d7dde6"/>
+  <rect x="150" y="256" width="120" height="34" rx="17" fill="#2b4dff"/>
+  <rect x="520" y="160" width="130" height="130" rx="12" fill="#dfe6ff"/>
+  <text x="400" y="370" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="20" fill="#535b67">// Screenshot folgt</text>
+</svg>
