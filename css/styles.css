@@ -6,19 +6,19 @@
    ============================================================ */
 
 :root {
-  /* Farben – monochrom + Kobalt, Sepia für "altes Web" */
-  --bg:         #f7f8fa;
-  --bg-2:       #ffffff;
-  --surface:    #ffffff;
-  --ink:        #0e1116;
-  --ink-soft:   #535b67;
-  --line:       #e3e6ea;
-  --line-strong:#d2d7de;
-  --accent:     #2b4dff;   /* Kobalt */
-  --accent-ink: #1c33cc;   /* dunkler – Links/Hover */
-  --accent-wash:#eef1ff;   /* heller Akzent-Hintergrund */
-  --accent-light:#8fb0ff;  /* heller Akzent auf Dunkel */
-  --old:        #9a7b3f;   /* Sepia – "2005" */
+  /* Farben – Dark Mode, Kobalt-Akzent, Sepia für "altes Web" */
+  --bg:         #0a0f1c;
+  --bg-2:       #0f1525;
+  --surface:    #131b2c;
+  --ink:        #e9eef6;
+  --ink-soft:   #97a4ba;
+  --line:       #212b3f;
+  --line-strong:#2d3950;
+  --accent:     #4d6bff;   /* Kobalt (heller für Dunkel) */
+  --accent-ink: #93acff;   /* Links auf Dunkel */
+  --accent-wash:rgba(77,107,255,.14);
+  --accent-light:#8fb0ff;
+  --old:        #c9ad79;   /* Sepia – "2005" */
 
   /* Maße */
   --maxw: 1120px;
@@ -86,7 +86,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Header / Nav ---------- */
 /* Obere Info-Leiste (ehrlich, statt Awards) */
-.topbar { background: var(--accent-wash); color: var(--ink); font-size: .85rem; border-bottom: 1px solid #dde3ff; }
+.topbar { background: var(--accent-wash); color: var(--ink); font-size: .85rem; border-bottom: 1px solid var(--line); }
 .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 40px; }
 .topbar-inner .tb-text { color: var(--ink-soft); }
 .topbar-inner a { font-weight: 600; color: var(--accent-ink); }
@@ -100,14 +100,8 @@ img { max-width: 100%; display: block; }
 .site-header .nav-menu a:hover { color: #fff; }
 .site-header .nav-toggle { border-color: rgba(255,255,255,.4); }
 .site-header .nav-toggle span { background: #fff; }
-.site-header.is-solid { background: rgba(247,248,250,.85); backdrop-filter: blur(12px); border-bottom-color: var(--line); }
-.site-header.is-solid .logo { color: var(--ink); }
-.site-header.is-solid .logo-mark { background: var(--ink); color: #fff; }
-.site-header.is-solid .nav-menu a { color: var(--ink-soft); }
-.site-header.is-solid .nav-menu a:hover { color: var(--ink); }
-.site-header.is-solid .nav-toggle { border-color: var(--line-strong); }
-.site-header.is-solid .nav-toggle span { background: var(--ink); }
-.site-header .nav-menu .nav-cta, .site-header.is-solid .nav-menu .nav-cta { color: #fff; }
+.site-header.is-solid { background: rgba(10,15,28,.92); border-bottom-color: var(--line); }
+.site-header .nav-menu .nav-cta { color: #fff; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 68px; }
 .logo { display: flex; align-items: center; gap: .6rem; color: var(--ink); font-weight: 700; font-family: var(--font-display); }
 .logo:hover { text-decoration: none; }
@@ -181,7 +175,7 @@ img { max-width: 100%; display: block; }
 @media (min-width: 620px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* ---------- Badge ---------- */
-.badge { display: inline-block; padding: .3rem .85rem; border-radius: 999px; font-family: var(--font-mono); font-size: .74rem; font-weight: 500; letter-spacing: .02em; color: var(--accent); background: var(--accent-wash); border: 1px solid #d8deff; }
+.badge { display: inline-block; padding: .3rem .85rem; border-radius: 999px; font-family: var(--font-mono); font-size: .74rem; font-weight: 500; letter-spacing: .02em; color: var(--accent-light); background: var(--accent-wash); border: 1px solid rgba(77,107,255,.35); }
 .badge.center { display: block; width: fit-content; margin: 0 auto 1rem; }
 
 /* ---------- Philosophie ---------- */
@@ -203,10 +197,10 @@ img { max-width: 100%; display: block; }
 .process p { color: var(--ink-soft); margin: 0; }
 
 /* ---------- Garantie ---------- */
-.guarantee { max-width: 680px; margin-inline: auto; text-align: center; background: var(--ink); color: #fff; border-radius: var(--radius); padding: clamp(2.2rem, 5vw, 3.2rem); box-shadow: var(--shadow); }
+.guarantee { max-width: 680px; margin-inline: auto; text-align: center; background: linear-gradient(160deg, var(--surface), var(--bg-2)); color: var(--ink); border: 1px solid var(--accent); border-radius: var(--radius); padding: clamp(2.2rem, 5vw, 3.2rem); box-shadow: var(--shadow); }
 .guarantee-badge { width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 1.1rem; background: var(--accent); color: #fff; font-size: 1.7rem; font-weight: 700; }
-.guarantee h2 { color: #fff; font-size: clamp(1.6rem, 4vw, 2.1rem); }
-.guarantee p { color: rgba(255,255,255,.78); max-width: 48ch; margin: 0 auto 1.7rem; }
+.guarantee h2 { color: var(--ink); font-size: clamp(1.6rem, 4vw, 2.1rem); }
+.guarantee p { color: var(--ink-soft); max-width: 48ch; margin: 0 auto 1.7rem; }
 
 /* ---------- Über mich ---------- */
 .about-grid { display: grid; grid-template-columns: 1fr; gap: var(--gap); align-items: start; }
