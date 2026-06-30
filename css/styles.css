@@ -128,8 +128,8 @@ img { max-width: 100%; display: block; }
 .hero-code .cv { color: #e0a96b; }   /* Wert/Zahl */
 .hero-code .cc { color: #3f4d6b; font-style: italic; }  /* Kommentar */
 .hero-bg-overlay { position: absolute; inset: 0;
-  background: radial-gradient(115% 80% at 25% 25%, rgba(8,12,26,.60), rgba(8,12,26,.93) 75%),
-              linear-gradient(180deg, rgba(8,12,26,.50), rgba(8,12,26,.86)); }
+  background: radial-gradient(120% 85% at 28% 30%, rgba(8,12,26,.35), rgba(8,12,26,.78) 80%),
+              linear-gradient(180deg, rgba(8,12,26,.25), rgba(8,12,26,.62)); }
 
 .hero-inner { position: relative; z-index: 2; max-width: 880px; }
 .hero-title { font-family: var(--font-display); color: #fff; font-weight: 700; font-size: clamp(2.5rem, 6.6vw, 4.6rem); line-height: 1.06; letter-spacing: -.01em; }
@@ -190,6 +190,7 @@ img { max-width: 100%; display: block; }
 
 /* Hero-Hintergrundvideo */
 .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
 
 /* Lauftext-Band */
