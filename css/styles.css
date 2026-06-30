@@ -27,7 +27,7 @@
   --gap: clamp(1rem, 3vw, 2rem);
 
   /* Typo */
-  --font-body:    "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-body:    "Instrument Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   --font-display: "Playfair Display", Georgia, serif;
   --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -269,6 +269,31 @@ img { max-width: 100%; display: block; }
 .testimonial-avatar { display: grid; place-items: center; width: 44px; height: 44px; flex: none; border-radius: 50%; background: var(--accent-wash); color: var(--accent-light); font-family: var(--font-mono); font-weight: 600; }
 .testimonial-meta strong { display: block; color: var(--ink); font-family: var(--font-body); }
 .testimonial-meta span { color: var(--ink-soft); font-size: .85rem; }
+
+/* ---------- Kontakt-Foto ---------- */
+.contact-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem; border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--line-strong), var(--shadow); }
+
+/* ---------- Statistik-Sektion ---------- */
+.stats-head { display: grid; grid-template-columns: 1fr; gap: 1rem 2.5rem; margin-bottom: 2.6rem; }
+.stats-head .section-lead { margin: 0; }
+@media (min-width: 760px) { .stats-head { grid-template-columns: 1.4fr 1fr; align-items: end; } }
+.stat { display: flex; flex-direction: column; gap: .35rem; }
+.stat-label { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.stat-num { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 3.6rem); font-weight: 700; line-height: 1; color: var(--ink); }
+.stat-sub { color: var(--ink-soft); font-size: .92rem; }
+.stat-chart { display: flex; align-items: flex-end; gap: 5px; height: 62px; margin-top: 1.2rem; }
+.stat-chart span { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, var(--accent), rgba(77,107,255,.2)); }
+.stat-chart span:nth-child(1) { height: 32%; }
+.stat-chart span:nth-child(2) { height: 46%; }
+.stat-chart span:nth-child(3) { height: 38%; }
+.stat-chart span:nth-child(4) { height: 56%; }
+.stat-chart span:nth-child(5) { height: 50%; }
+.stat-chart span:nth-child(6) { height: 66%; }
+.stat-chart span:nth-child(7) { height: 60%; }
+.stat-chart span:nth-child(8) { height: 82%; }
+.stat-chart span:nth-child(9) { height: 74%; }
+.stat-chart span:nth-child(10) { height: 96%; }
+.stats-note { text-align: center; color: var(--ink-soft); font-size: .8rem; margin-top: 1.6rem; font-family: var(--font-mono); }
 
 /* ---------- Badge ---------- */
 .badge { display: inline-block; padding: .3rem .85rem; border-radius: 999px; font-family: var(--font-mono); font-size: .74rem; font-weight: 500; letter-spacing: .02em; color: var(--accent-light); background: var(--accent-wash); border: 1px solid rgba(77,107,255,.35); }
