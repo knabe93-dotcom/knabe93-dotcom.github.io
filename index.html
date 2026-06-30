@@ -19,12 +19,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600;1,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600;1,700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- ====== Obere Info-Leiste ====== -->
   <div class="topbar">
@@ -38,9 +39,7 @@
   <header class="site-header" id="seitenkopf">
     <div class="container nav-inner">
       <a href="#hero" class="logo" aria-label="Startseite Kevin Knabe">
-        <span class="logo-mark">KK</span>
-        <span class="logo-text">Kevin&nbsp;Knabe</span>
-      </a>
+        <img class="logo-mark" src="assets/logo-kk.webp" alt="Kevin Knabe" width="125" height="38" />      </a>
 
       <nav class="nav" aria-label="Hauptnavigation">
         <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menü öffnen">
@@ -79,14 +78,13 @@
         </p>
         <div class="hero-actions reveal">
           <a href="#kontakt" class="btn btn-accent">Projekt anfragen <span class="btn-note">– in 1&nbsp;Minute</span></a>
-          <a href="#referenzen" class="btn btn-ghost">Vorher/Nachher ansehen</a>
+          <a href="#branchen" class="btn btn-ghost">Zum Portfolio</a>
         </div>
         <p class="hero-trust reveal">
           <span>✓ Kostenloses Erstgespräch</span>
           <span>✓ Antwort innerhalb von 24&nbsp;Std.</span>
           <span>✓ Du zahlst erst bei Zufriedenheit</span>
         </p>
-        <a class="hero-scroll" href="#marquee" aria-label="Mehr entdecken"><span class="hero-scroll-dot"></span></a>
       </div>
     </section>
 
@@ -127,6 +125,43 @@
       </div>
     </section>
 
+    <!-- ====== Statistik / Zahlen ====== -->
+    <section class="section" id="zahlen">
+      <div class="container">
+        <div class="stats-head">
+          <div>
+            <p class="eyebrow reveal">Zahlen</p>
+            <h2 class="section-title reveal">Was eine moderne Website bringt</h2>
+          </div>
+          <p class="section-lead reveal">
+            Eine schnelle, moderne Seite ist kein Kostenfaktor – sie bringt messbar mehr
+            Conversion, Sichtbarkeit und Anfragen.
+          </p>
+        </div>
+        <div class="cards stats">
+          <article class="card stat reveal">
+            <span class="stat-label">Mehr Conversion</span>
+            <span class="stat-num">+7&nbsp;%</span>
+            <span class="stat-sub">mehr Conversion bei schnellerer Ladezeit</span>
+            <div class="stat-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </article>
+          <article class="card stat reveal">
+            <span class="stat-label">Weniger Absprünge</span>
+            <span class="stat-num">53&nbsp;%</span>
+            <span class="stat-sub">verlassen die Website nach 3 s</span>
+            <div class="stat-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </article>
+          <article class="card stat reveal">
+            <span class="stat-label">Mobile Aufrufe</span>
+            <span class="stat-num">60&nbsp;%+</span>
+            <span class="stat-sub">des Traffics kommen über das Handy</span>
+            <div class="stat-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </article>
+        </div>
+        <p class="stats-note">Allgemeine Branchenwerte (u.&nbsp;a. Google) – keine garantierten Einzelergebnisse.</p>
+      </div>
+    </section>
+
     <!-- ====== Leistungen ====== -->
     <section class="section" id="leistungen">
       <div class="container">
@@ -153,28 +188,6 @@
       </div>
     </section>
 
-    <!-- ====== Philosophie (gepaarte Aussagen) ====== -->
-    <section class="section section-alt">
-      <div class="container">
-        <p class="eyebrow center reveal">Versprechen</p>
-        <h2 class="section-title center reveal">Mein Versprechen an dich</h2>
-        <div class="philosophy">
-          <div class="philo-pair reveal">
-            <p class="philo-no">Kein anonymer Baukasten.</p>
-            <p class="philo-yes">Ein echter Ansprechpartner – ich.</p>
-          </div>
-          <div class="philo-pair reveal">
-            <p class="philo-no">Kein Template von der Stange.</p>
-            <p class="philo-yes">Handgeschrieben, passend für deinen Betrieb.</p>
-          </div>
-          <div class="philo-pair reveal">
-            <p class="philo-no">Kein Technik-Kauderwelsch.</p>
-            <p class="philo-yes">Verständlich erklärt, Schritt für Schritt.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ====== Referenzen: Vorher/Nachher ====== -->
     <section class="section" id="referenzen">
       <div class="container">
@@ -186,15 +199,8 @@
         </p>
 
         <figure class="compare reveal">
-          <img src="assets/projekte/vorhernachher.png" alt="Vorher/Nachher-Vergleich eines Website-Redesigns" loading="lazy" />
+          <img src="assets/projekte/vorhernachher.webp" alt="Vorher/Nachher-Vergleich eines Website-Redesigns" loading="lazy" />
         </figure>
-
-        <p class="bna-hint center">
-          Lust auf ein interaktives Beispiel?
-          <a href="demos/neu-modern.html" target="_blank" rel="noopener">Modernes Demo</a>
-          &nbsp;·&nbsp;
-          <a href="demos/alt-2005.html" target="_blank" rel="noopener">„2005er"-Demo</a>
-        </p>
       </div>
     </section>
 
@@ -207,21 +213,57 @@
         <div class="work-grid">
           <!-- Bilder einfügen: Screenshots als JPG/PNG nach assets/projekte/ legen und unten src + das TODO entfernen. -->
           <figure class="work reveal">
-            <img class="work-img" src="assets/projekte/dasrad.png" alt="DASRAD – Website für Fahrrad &amp; E-Commerce" loading="lazy" width="800" height="500" />
+            <img class="work-img" src="assets/projekte/dasrad.webp" alt="DASRAD – Website für Fahrrad &amp; E-Commerce" loading="lazy" width="800" height="500" />
             <figcaption><span class="work-cat">Fahrrad &amp; E-Commerce</span><span class="work-meta">DASRAD</span></figcaption>
           </figure>
           <figure class="work reveal">
-            <img class="work-img" src="assets/projekte/kanzlei.png" alt="Website für eine Rechtsanwaltskanzlei" loading="lazy" width="800" height="500" />
+            <img class="work-img" src="assets/projekte/kanzlei.webp" alt="Website für eine Rechtsanwaltskanzlei" loading="lazy" width="800" height="500" />
             <figcaption><span class="work-cat">Recht &amp; Kanzlei</span><span class="work-meta">Rechtsberatung</span></figcaption>
           </figure>
           <figure class="work reveal">
-            <img class="work-img" src="assets/projekte/luxe-salon.png" alt="Luxe Salon – Website für Beauty &amp; Friseur" loading="lazy" width="800" height="500" />
+            <img class="work-img" src="assets/projekte/luxe-salon.webp" alt="Luxe Salon – Website für Beauty &amp; Friseur" loading="lazy" width="800" height="500" />
             <figcaption><span class="work-cat">Beauty &amp; Friseur</span><span class="work-meta">Luxe Salon</span></figcaption>
           </figure>
           <figure class="work reveal">
-            <img class="work-img" src="assets/projekte/vista-suites.png" alt="Vista Suites – Website für Hotel &amp; Hospitality" loading="lazy" width="800" height="500" />
+            <img class="work-img" src="assets/projekte/vista-suites.webp" alt="Vista Suites – Website für Hotel &amp; Hospitality" loading="lazy" width="800" height="500" />
             <figcaption><span class="work-cat">Hotel &amp; Hospitality</span><span class="work-meta">Vista Suites</span></figcaption>
           </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Testimonials / Kundenstimmen ====== -->
+    <section class="section section-alt" id="testimonials">
+      <div class="container">
+        <p class="eyebrow center reveal">Kundenstimmen</p>
+        <h2 class="section-title center reveal">Was Kunden sagen</h2>
+        <p class="section-lead center reveal">Echte Rückmeldungen aus meinen Projekten.</p>
+        <div class="cards testimonials">
+          <!-- PLATZHALTER: Mit echten Zitaten ersetzen (Name, Rolle/Firma). NICHT erfinden! -->
+          <article class="card testimonial reveal">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">„Hier erscheint deine erste echte Kundenstimme. Schick mir ein Zitat, und ich baue es ein."</p>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar" aria-hidden="true">?</span>
+              <span class="testimonial-meta"><strong>Name des Kunden</strong><span>Rolle · Firma</span></span>
+            </div>
+          </article>
+          <article class="card testimonial reveal">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">„Platzhalter für eine weitere echte Empfehlung – kurz, konkret und mit Ergebnis."</p>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar" aria-hidden="true">?</span>
+              <span class="testimonial-meta"><strong>Name des Kunden</strong><span>Rolle · Firma</span></span>
+            </div>
+          </article>
+          <article class="card testimonial reveal">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">„Platzhalter für eine dritte Stimme. Drei Testimonials wirken am stärksten."</p>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar" aria-hidden="true">?</span>
+              <span class="testimonial-meta"><strong>Name des Kunden</strong><span>Rolle · Firma</span></span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -292,41 +334,6 @@
       </div>
     </section>
 
-    <!-- ====== Über mich (kompakt) ====== -->
-    <section class="section" id="ueber">
-      <div class="container about-grid">
-        <div class="about-text reveal">
-          <p class="eyebrow">Über mich</p>
-          <h2 class="section-title">Wer hinter den Websites steckt</h2>
-          <p>
-            Hallo, ich bin <strong>Kevin Knabe</strong> aus Karlsruhe. Aus Stationen als
-            Manager bei <strong>HB&nbsp;Leisure&nbsp;Ltd.</strong>, als <strong>Marketing&nbsp;Manager</strong>
-            bei ANYKO und als <strong>E-Commerce&nbsp;Manager</strong> habe ich eines gelernt:
-            Eine Website ist nur dann gut, wenn sie verkauft.
-          </p>
-          <p>
-            Dieses Wissen aus Marketing und Online-Handel bringe ich in jede Seite ein, die ich baue –
-            handgeschrieben, schnell und genau auf das ausgerichtet, was deinem Unternehmen wirklich Kunden bringt.
-          </p>
-          <ul class="skill-tags" aria-label="Fähigkeiten">
-            <li>Marketing-Strategie</li>
-            <li>E-Commerce</li>
-            <li>Conversion-Optimierung</li>
-            <li>SEO-Grundlagen</li>
-            <li>Responsive Webdesign</li>
-            <li>HTML / CSS / JS</li>
-            <li>Performance</li>
-            <li>Branding</li>
-          </ul>
-        </div>
-        <aside class="about-card reveal" aria-hidden="true">
-          <!-- PLATZHALTER: optional dein Foto in assets/ legen und hier einbinden -->
-          <div class="about-photo">KK</div>
-          <p class="about-card-note">Foto folgt</p>
-        </aside>
-      </div>
-    </section>
-
     <!-- ====== FAQ ====== -->
     <section class="section section-alt" id="faq">
       <div class="container faq-inner">
@@ -360,6 +367,7 @@
     <!-- ====== Abschluss-CTA / Kontakt ====== -->
     <section class="section" id="kontakt">
       <div class="container contact-inner">
+        <img class="contact-photo reveal" src="assets/projekte/kevin.jpg" alt="Kevin Knabe" width="120" height="120" />
         <p class="eyebrow center reveal">Kontakt</p>
         <h2 class="section-title center reveal">Bereit für einen Auftritt, der Kunden gewinnt?</h2>
         <p class="section-lead center reveal">
@@ -380,9 +388,36 @@
 
   <!-- ====== Footer ====== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© <span id="jahr">2026</span> Kevin Knabe</span>
-      <div class="footer-links"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="logo"><img class="logo-mark" src="assets/logo-kk.webp" alt="Kevin Knabe" width="125" height="38" /></a>
+          <p>Moderne, handgeschriebene Websites für Unternehmen aus der Region Karlsruhe. Erst die Website, dann die Bezahlung.</p>
+          <a href="#kontakt" class="btn btn-accent btn-sm">Projekt anfragen →</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-head">Navigation</p>
+          <nav>
+            <a href="#leistungen">Leistungen</a>
+            <a href="#referenzen">Vorher/Nachher</a>
+            <a href="#branchen">Projekte</a>
+            <a href="#ablauf">Ablauf</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <p class="footer-head">Kontakt</p>
+          <address>
+            <a href="mailto:Knabe93@gmail.com">Knabe93@gmail.com</a>
+            <span>76344 Karlsruhe</span>
+            <a href="https://www.linkedin.com/in/kevin-knabe-2bb692262/" target="_blank" rel="noopener">LinkedIn</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="jahr">2026</span> Kevin Knabe</span>
+        <div class="footer-links"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
+      </div>
     </div>
   </footer>
 
