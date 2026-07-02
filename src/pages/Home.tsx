@@ -232,23 +232,86 @@ function Standards() {
   )
 }
 
+const svgProps = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.75,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+} as const
 const steps = [
-  ["01", "Kostenloses Erstgespräch", "Wir klären, was du brauchst und was deine Website leisten soll – unverbindlich."],
-  ["02", "Konzept & Muster", "Du bekommst zuerst ein kostenloses Muster deiner Website zu sehen – ganz unverbindlich. Erst wenn es dir gefällt, bezahlst du dafür. Keine Vorkasse, keine versteckten Kosten."],
-  ["03", "Ich baue deine Seite", "Du lehnst dich zurück und bekommst regelmäßig Zwischenstände zu sehen."],
-  ["04", "Live-Gang & Übergabe", "Deine Website geht online. Auf Wunsch kümmere ich mich auch danach um die Pflege."],
+  {
+    n: "01",
+    h: "Kostenloses Erstgespräch",
+    p: "Wir klären unverbindlich, was du brauchst und was deine Website leisten soll.",
+    icon: <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z" />,
+  },
+  {
+    n: "02",
+    h: "Konzept & Muster",
+    p: "Du bekommst zuerst ein kostenloses Muster deiner Website. Erst wenn es dir gefällt, bezahlst du dafür – keine Vorkasse.",
+    icon: (
+      <>
+        <path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z" />
+        <path d="m15 5 4 4" />
+      </>
+    ),
+  },
+  {
+    n: "03",
+    h: "Ich baue deine Seite",
+    p: "Du lehnst dich zurück und bekommst regelmäßig Zwischenstände zu sehen.",
+    icon: (
+      <>
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </>
+    ),
+  },
+  {
+    n: "04",
+    h: "Live-Gang & Übergabe",
+    p: "Deine Website geht online. Auf Wunsch kümmere ich mich auch danach um die Pflege.",
+    icon: (
+      <>
+        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+        <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+      </>
+    ),
+  },
 ]
 function Process() {
   return (
     <Section id="ablauf" alt>
       <Reveal><Eyebrow center>Ablauf</Eyebrow></Reveal>
       <Reveal><h2 className={`${title} mt-4 text-center`}>In 4 Schritten zur neuen Website</h2></Reveal>
-      <div className="mt-10 grid gap-6 md:grid-cols-4">
-        {steps.map(([n, h, p]) => (
-          <Reveal key={n} className={card}>
-            <div className="mb-3 border-b border-line pb-3 font-mono text-lg font-semibold text-accent">{n}</div>
-            <h3 className="font-display text-lg font-semibold">{h}</h3>
-            <p className="mt-1 text-ink-soft">{p}</p>
+      <div className="mt-12 grid gap-6 md:grid-cols-4">
+        {steps.map((s, i) => (
+          <Reveal key={s.n} delay={i * 0.08} className="relative">
+            <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface/70 p-6 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1 hover:border-accent/60">
+              {/* Radial-Glow + verblasster Konzentrik-Ring wie im Referenz-Layout */}
+              <span aria-hidden className="pointer-events-none absolute -left-8 -top-8 h-36 w-36 rounded-full bg-accent/15 blur-2xl" />
+              <span aria-hidden className="pointer-events-none absolute -left-4 top-10 h-28 w-28 rounded-full border border-accent/10" />
+              {/* Große verblasste Schrittnummer */}
+              <span aria-hidden className="pointer-events-none absolute -bottom-2 right-3 font-display text-[5rem] font-bold leading-none text-accent/[0.07]">{s.n}</span>
+
+              <span className="relative w-fit rounded-full bg-accent px-2.5 py-0.5 font-mono text-xs font-semibold text-white shadow-lg shadow-accent/30">{s.n}</span>
+
+              <div className="relative mt-6 grid h-16 w-16 place-items-center">
+                <span className="absolute inset-0 rounded-full border border-accent/40" />
+                <span className="absolute inset-0 rounded-full bg-accent/20 blur-md" />
+                <svg {...svgProps} className="relative h-7 w-7 text-accent-light">{s.icon}</svg>
+              </div>
+
+              <h3 className="relative mt-5 font-display text-lg font-semibold">{s.h}</h3>
+              <p className="relative mt-1.5 text-sm text-ink-soft">{s.p}</p>
+            </div>
+            {i < steps.length - 1 && (
+              <span aria-hidden className="absolute right-0 top-1/2 hidden h-px w-6 -translate-y-1/2 translate-x-full border-t border-dashed border-accent/50 md:block" />
+            )}
           </Reveal>
         ))}
       </div>
