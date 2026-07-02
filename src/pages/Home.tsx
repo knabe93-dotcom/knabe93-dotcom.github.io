@@ -40,15 +40,43 @@ function Hero() {
             Ich baue moderne, schnelle Websites für Unternehmen aus der Region Karlsruhe –
             und das Beste: Du zahlst erst, wenn deine Seite fertig ist und dir gefällt.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Magnetic><Link to="/kontakt"><Button size="lg">Projekt anfragen</Button></Link></Magnetic>
-            <Magnetic><a href="#projekte"><Button size="lg" variant="ghost">Zum Portfolio</Button></a></Magnetic>
+          <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5">
+            <Magnetic>
+              <Link
+                to="/kontakt"
+                className="group inline-flex items-center gap-3 rounded-full bg-accent py-1.5 pl-6 pr-1.5 font-medium text-white shadow-lg shadow-accent/25 transition-colors hover:bg-accent-light"
+              >
+                Los geht’s
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-white text-lg text-accent transition-transform group-hover:translate-x-0.5">→</span>
+              </Link>
+            </Magnetic>
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-3">
+                {[0, 1, 2].map((i) => (
+                  <span key={i} className="grid h-10 w-10 place-items-center rounded-full border-2 border-background bg-gradient-to-br from-accent to-accent-light text-white">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                      <circle cx="12" cy="8" r="3.5" />
+                      <path d="M5 20a7 7 0 0 1 14 0" />
+                    </svg>
+                  </span>
+                ))}
+              </div>
+              <div className="leading-tight">
+                <div className="font-display text-lg font-semibold text-ink">50+</div>
+                <div className="text-sm text-ink-soft">Zufriedene Kunden</div>
+              </div>
+            </div>
           </div>
-          <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.92rem] text-ink-soft">
-            <span>✓ Kostenloses Erstgespräch</span>
-            <span>✓ Antwort innerhalb von 24 Std.</span>
-            <span>✓ Du zahlst erst bei Zufriedenheit</span>
-          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            {[["150+", "Umgesetzte Projekte"], ["98%", "Kundenzufriedenheit"]].map(([num, label], i) => (
+              <div key={num} className="relative w-[190px] rounded-2xl border border-line bg-surface/40 p-5 backdrop-blur-md">
+                <span className="absolute right-4 top-4 text-lg text-accent-light">✳</span>
+                <div className="font-display text-[2.6rem] font-bold leading-none">{num}</div>
+                <div className="mt-3 font-mono text-[0.68rem] uppercase tracking-wider text-accent-light/70">no.{i + 1}</div>
+                <div className="text-sm text-ink-soft">{label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -68,6 +96,22 @@ function Marquee() {
         ))}
       </div>
     </div>
+  )
+}
+
+function Statement() {
+  const em = "font-display font-semibold not-italic text-ink"
+  return (
+    <Section>
+      <Reveal>
+        <p className="mx-auto max-w-[900px] text-center font-sans text-[clamp(1.5rem,3.4vw,2.4rem)] font-light leading-[1.35] text-ink-soft">
+          Ich verbinde <em className={em}>durchdachtes Design</em>, <em className={em}>sauberen Code</em> und{" "}
+          <em className="font-display italic text-accent-light">ehrliche Beratung</em> – für Unternehmen aus der Region
+          Karlsruhe, die online endlich modern auftreten wollen. Gebaut mit <em className={em}>Sorgfalt</em> und Blick
+          fürs Detail.
+        </p>
+      </Reveal>
+    </Section>
   )
 }
 
@@ -365,6 +409,7 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee />
+        <Statement />
         <Problem />
         <Stats />
         <Services />
