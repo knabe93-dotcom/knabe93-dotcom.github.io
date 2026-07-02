@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Magnetic } from "@/components/Magnetic"
 
@@ -21,11 +22,14 @@ export function Header() {
               {label}
             </a>
           ))}
+          <Link to="/kontakt" className="text-[0.95rem] text-ink-soft transition-colors hover:text-ink">
+            Kontakt
+          </Link>
         </nav>
         <Magnetic>
-          <a href="#kontakt">
+          <Link to="/kontakt">
             <Button size="sm">Projekt anfragen</Button>
-          </a>
+          </Link>
         </Magnetic>
       </div>
     </header>

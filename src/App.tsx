@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { HashRouter, Routes, Route } from "react-router-dom"
 import Home from "@/pages/Home"
+import { Kontakt } from "@/pages/Kontakt"
 import { Impressum, Datenschutz } from "@/pages/Legal"
 
 // ponytail: HashRouter frisst fragment-links (#leistungen wird als Route /leistungen
@@ -29,6 +30,7 @@ export default function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/kontakt" element={<Kontakt />} />
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/datenschutz" element={<Datenschutz />} />
       </Routes>

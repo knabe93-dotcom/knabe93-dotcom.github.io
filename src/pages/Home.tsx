@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react"
+import { Link } from "react-router-dom"
 import { Intro } from "@/components/Intro"
 
 const Scene3D = lazy(() => import("@/three/Scene3D"))
@@ -40,7 +41,7 @@ function Hero() {
             und das Beste: Du zahlst erst, wenn deine Seite fertig ist und dir gefällt.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Magnetic><a href="#kontakt"><Button size="lg">Projekt anfragen</Button></a></Magnetic>
+            <Magnetic><Link to="/kontakt"><Button size="lg">Projekt anfragen</Button></Link></Magnetic>
             <Magnetic><a href="#projekte"><Button size="lg" variant="ghost">Zum Portfolio</Button></a></Magnetic>
           </div>
           <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.92rem] text-ink-soft">
@@ -262,7 +263,7 @@ function Guarantee() {
         <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-accent text-2xl font-bold text-white">✓</div>
         <h2 className="mt-4 font-display text-[clamp(1.6rem,4vw,2.1rem)] font-bold">Erst die Website, dann die Bezahlung</h2>
         <p className="mx-auto mt-4 max-w-[46ch] text-ink-soft">Du gehst mit keinem Cent in Vorleistung. Wir bauen deine Website, du siehst das Ergebnis – und bezahlt wird erst, wenn du wirklich zufrieden bist.</p>
-        <a href="#kontakt" className="mt-6 inline-block"><Button size="lg">Unverbindlich anfragen</Button></a>
+        <Link to="/kontakt" className="mt-6 inline-block"><Button size="lg">Unverbindlich anfragen</Button></Link>
       </Reveal>
     </Section>
   )
@@ -292,24 +293,6 @@ function Faq() {
   )
 }
 
-function Contact() {
-  return (
-    <Section id="kontakt">
-      <div className="text-center">
-        <Reveal><img src="/assets/projekte/kevin.jpg" alt="Kevin Knabe" className="mx-auto mb-6 h-28 w-28 rounded-full object-cover shadow-2xl ring-1 ring-line-strong" /></Reveal>
-        <Reveal><Eyebrow center>Kontakt</Eyebrow></Reveal>
-        <Reveal><h2 className={`${title} mt-4`}>Bereit für einen Auftritt, der Kunden gewinnt?</h2></Reveal>
-        <Reveal><p className={`${lead} mt-4`}>Schreib mir kurz, worum es geht – ich melde mich innerhalb von 24 Stunden.</p></Reveal>
-        <Reveal className="mt-6 flex flex-wrap justify-center gap-4">
-          <Magnetic><a href="mailto:Knabe93@gmail.com?subject=Anfrage%20Website"><Button size="lg">E-Mail schreiben</Button></a></Magnetic>
-          <Magnetic><a href="https://www.linkedin.com/in/kevin-knabe-2bb692262/" target="_blank" rel="noopener"><Button size="lg" variant="ghost">LinkedIn</Button></a></Magnetic>
-        </Reveal>
-        <p className="mt-5 font-mono text-sm text-ink-soft">Knabe93@gmail.com · 76344 Karlsruhe</p>
-      </div>
-    </Section>
-  )
-}
-
 export default function Home() {
   return (
     <>
@@ -329,7 +312,6 @@ export default function Home() {
         <Process />
         <Guarantee />
         <Faq />
-        <Contact />
       </main>
       <Footer />
     </>

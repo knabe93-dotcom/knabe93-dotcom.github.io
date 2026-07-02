@@ -11,18 +11,18 @@ export function Footer() {
             Moderne, handgeschriebene Websites für Unternehmen aus der Region Karlsruhe.
             Erst die Website, dann die Bezahlung.
           </p>
-          <a href="#kontakt" className="mt-5 inline-block">
+          <Link to="/kontakt" className="mt-5 inline-block">
             <Button size="sm">Projekt anfragen →</Button>
-          </a>
+          </Link>
         </div>
         <div>
           <p className="mb-4 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent-light">Navigation</p>
           <nav className="flex flex-col gap-2.5 text-ink-soft">
             <a href="#leistungen" className="hover:text-accent">Leistungen</a>
             <a href="#projekte" className="hover:text-accent">Projekte</a>
-            <a href="#preise" className="hover:text-accent">Preise</a>
             <a href="#ablauf" className="hover:text-accent">Ablauf</a>
             <a href="#faq" className="hover:text-accent">FAQ</a>
+            <Link to="/kontakt" className="hover:text-accent">Kontakt</Link>
           </nav>
         </div>
         <div>
