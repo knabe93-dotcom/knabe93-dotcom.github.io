@@ -5,8 +5,8 @@ export function Eyebrow({ children, center }: { children: ReactNode; center?: bo
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-accent-light",
-        center && "justify-center",
+        "items-center gap-2.5 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-accent-light",
+        center ? "flex justify-center" : "inline-flex",
       )}
     >
       <span className="h-0.5 w-6 rounded bg-gradient-to-r from-transparent to-accent" />

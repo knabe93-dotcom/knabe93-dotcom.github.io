@@ -1,8 +1,8 @@
 # Kopiere diese Datei nach "deploy.config" und trage deine Hostinger-FTP-Daten ein.
 # (deploy.config ist per .gitignore ausgeschlossen und landet NICHT im Git.)
-FTP_HOST="ftp.hstgr.io"       # Zertifikatsname (wird geprueft)
-FTP_IP="46.202.156.202"       # direkte IP (umgeht den Hostname-Timeout) – ggf. anpassen
+FTP_HOST="ftp.hstgr.io"       # Zertifikatsname (wird geprueft) – NICHT als ftp://... eintragen
+FTP_IP="46.202.156.202"       # direkte IP (umgeht den Hostname-Timeout)
 FTP_USER=""                   # dein FTP-Benutzer aus dem hPanel
 FTP_PASS=""                   # dein FTP-Passwort
-REMOTE_DIR=""                 # leer lassen, wenn das FTP-Konto in den Web-Ordner gechrootet ist
+REMOTE_DIR=""                 # leer, wenn gechrootet; sonst z.B. "public_html"
 LOCAL_DIR="dist"              # Vite-Build-Ausgabe

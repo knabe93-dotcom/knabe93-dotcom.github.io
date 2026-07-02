@@ -16,8 +16,18 @@ const lead = "mx-auto max-w-[640px] text-lg text-ink-soft"
 
 function Hero() {
   return (
-    <section id="hero" className="relative flex min-h-[92vh] items-center">
-      <div className="mx-auto w-full max-w-[1120px] px-[clamp(1.1rem,4vw,2.2rem)]">
+    <section id="hero" className="relative flex min-h-[92vh] items-center overflow-hidden">
+      <video
+        className="absolute inset-0 z-0 h-full w-full object-cover opacity-45"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+        src="/assets/projekte/backround.mp4"
+      />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/75 via-background/55 to-background" aria-hidden="true" />
+      <div className="relative z-10 mx-auto w-full max-w-[1120px] px-[clamp(1.1rem,4vw,2.2rem)]">
         <div className="max-w-[820px]">
           <h1 className="font-display text-[clamp(2.5rem,6.6vw,4.6rem)] font-bold leading-[1.05] tracking-tight">
             Verkaufsstarke Websites für Unternehmen,{" "}
@@ -184,35 +194,6 @@ function Projects() {
   )
 }
 
-const tiers = [
-  ["Starter", "ab 490 €", ["One-Pager", "Mobil-optimiert", "Kontakt & Anfahrt", "Basis-SEO"], false],
-  ["Business", "ab 990 €", ["Mehrere Seiten", "CMS-Grundlagen", "SEO-Optimierung", "Kontaktformular"], true],
-  ["Premium", "auf Anfrage", ["Individuelles Design", "E-Commerce / Integrationen", "Laufende Betreuung", "Persönlicher Ansprechpartner"], false],
-] as const
-function Pricing() {
-  return (
-    <Section id="preise">
-      <Reveal><Eyebrow center>Pakete</Eyebrow></Reveal>
-      <Reveal><h2 className={`${title} mt-4 text-center`}>Transparente Pakete</h2></Reveal>
-      <Reveal><p className={`${lead} mt-4 text-center`}>Klare Startpunkte – der Festpreis kommt nach dem kostenlosen Erstgespräch.</p></Reveal>
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {tiers.map(([name, price, feats, hl]) => (
-          <Reveal key={name} className={`${card} flex flex-col ${hl ? "border-accent ring-1 ring-accent" : ""}`}>
-            {hl && <span className="mb-3 self-start rounded-full bg-accent px-3 py-0.5 font-mono text-[0.7rem] uppercase text-white">Beliebt</span>}
-            <h3 className="font-display text-xl font-semibold">{name}</h3>
-            <div className="mt-2 font-display text-3xl font-bold">{price}</div>
-            <ul className="mt-5 flex-1 space-y-2 text-ink-soft">
-              {feats.map((f) => <li key={f}>✓ {f}</li>)}
-            </ul>
-            <a href="#kontakt" className="mt-6"><Button className="w-full" variant={hl ? "default" : "ghost"}>Anfragen</Button></a>
-          </Reveal>
-        ))}
-      </div>
-      <p className="mt-4 text-center font-mono text-xs text-ink-soft">Platzhalter-Preise – bitte anpassen.</p>
-    </Section>
-  )
-}
-
 function Testimonials() {
   const items = [1, 2, 3]
   return (
@@ -252,7 +233,7 @@ function Standards() {
 
 const steps = [
   ["01", "Kostenloses Erstgespräch", "Wir klären, was du brauchst und was deine Website leisten soll – unverbindlich."],
-  ["02", "Konzept & Angebot", "Du bekommst einen klaren Vorschlag und einen fairen Festpreis. Keine versteckten Kosten."],
+  ["02", "Konzept & Muster", "Du bekommst zuerst ein kostenloses Muster deiner Website zu sehen – ganz unverbindlich. Erst wenn es dir gefällt, bezahlst du dafür. Keine Vorkasse, keine versteckten Kosten."],
   ["03", "Ich baue deine Seite", "Du lehnst dich zurück und bekommst regelmäßig Zwischenstände zu sehen."],
   ["04", "Live-Gang & Übergabe", "Deine Website geht online. Auf Wunsch kümmere ich mich auch danach um die Pflege."],
 ]
@@ -343,7 +324,6 @@ export default function Home() {
         <Services />
         <Compare />
         <Projects />
-        <Pricing />
         <Testimonials />
         <Standards />
         <Process />
