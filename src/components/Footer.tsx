@@ -19,7 +19,7 @@ export function Footer() {
           <p className="mb-4 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-accent-light">Navigation</p>
           <nav className="flex flex-col gap-2.5 text-ink-soft">
             <a href="#leistungen" className="hover:text-accent">Leistungen</a>
-            <a href="#projekte" className="hover:text-accent">Projekte</a>
+            <a href="#projekte" className="hover:text-accent">Referenzen</a>
             <a href="#ablauf" className="hover:text-accent">Ablauf</a>
             <a href="#faq" className="hover:text-accent">FAQ</a>
             <Link to="/kontakt" className="hover:text-accent">Kontakt</Link>

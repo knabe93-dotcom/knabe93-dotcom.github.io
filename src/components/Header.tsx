@@ -4,7 +4,7 @@ import { Magnetic } from "@/components/Magnetic"
 
 const links = [
   ["#leistungen", "Leistungen"],
-  ["#projekte", "Projekte"],
+  ["#projekte", "Referenzen"],
   ["#ablauf", "Ablauf"],
   ["#faq", "FAQ"],
 ]
