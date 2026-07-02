@@ -1,31 +1,32 @@
-# Kevin Knabe – Portfolio-Website
+# React + TypeScript + Vite
 
-Persönliche Portfolio-Website. Statisch gebaut mit reinem **HTML, CSS und JavaScript**
-(kein Framework), gehostet auf **GitHub Pages**.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-**Live:** https://knabe93-dotcom.github.io
+Currently, two official plugins are available:
 
-## Aufbau
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-| Datei/Ordner            | Inhalt |
-|-------------------------|--------|
-| `index.html`            | One-Pager: Hero, Über mich, Leistungen, Vorher/Nachher, Kontakt |
-| `css/styles.css`        | Dark-Theme, responsive (mobile-first), CSS-Variablen |
-| `js/main.js`            | Vorher/Nachher-Slider, Mobile-Menü, Scroll-Animationen |
-| `assets/`               | Favicon, später Fotos |
-| `demos/alt-2005.html`   | Demo: typische Website von ~2005 |
-| `demos/neu-modern.html` | Demo: dieselbe Firma, modern neu gebaut |
+## React Compiler
 
-## Lokal ansehen
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-`index.html` einfach im Browser öffnen – kein Build, kein Server nötig.
+## Expanding the Oxlint configuration
 
-## Inhalte anpassen
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-Stellen, die noch echte Inhalte brauchen, sind im Code mit `PLATZHALTER` markiert
-(Werdegang, Skills, Leistungen, ggf. Preise, Foto).
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
+```
 
-## Hinweis
-
-Bei geschäftlicher Nutzung in Deutschland ist ein **Impressum** Pflicht
-(siehe Platzhalter-Link im Footer).
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
