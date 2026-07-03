@@ -1,6 +1,11 @@
 import { useEffect, type FormEvent } from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
+import { CalEmbed } from "@/components/CalEmbed"
+
+// TODO: Nach Cal.com-Einrichtung hier den eigenen Buchungs-Link eintragen,
+// Format "username/event" – z. B. "kevin-knabe/30min".
+const CAL_LINK = "kevin-knabe/30min"
 
 // ponytail: mailto-Form – null Backend, öffnet das Mailprogramm des Besuchers.
 // Upgrade-Pfad, wenn Anfragen serverseitig ankommen sollen (ohne Mailclient):
@@ -26,7 +31,7 @@ export function Kontakt() {
   }
 
   return (
-    <div className="relative z-10 mx-auto max-w-[640px] px-[clamp(1.1rem,4vw,2.2rem)] py-16">
+    <div className="relative z-10 mx-auto max-w-[760px] px-[clamp(1.1rem,4vw,2.2rem)] py-16">
       <Link to="/" className="font-mono text-sm text-accent-light hover:text-accent">
         ← Zurück zur Startseite
       </Link>
@@ -39,11 +44,27 @@ export function Kontakt() {
         Projekt anfragen
       </h1>
       <p className="mt-4 text-lg text-ink-soft">
-        Schreib mir kurz, worum es geht – ich melde mich innerhalb von 24 Stunden. Du zahlst
-        erst, wenn dir dein fertiges Muster gefällt.
+        Buch dir direkt ein kostenloses <strong className="text-ink">30-Minuten-Gespräch über Zoom</strong> –
+        wähl einfach Tag und Uhrzeit. Du bekommst den Zoom-Link automatisch per E-Mail. Lieber schreiben?
+        Nutz das Formular weiter unten.
       </p>
 
-      <form onSubmit={onSubmit} className="mt-8 flex flex-col gap-4">
+      <div className="mt-10">
+        <span className="font-mono text-[0.78rem] uppercase tracking-wide text-gold-light">
+          Termin buchen
+        </span>
+        <div className="mt-3">
+          <CalEmbed calLink={CAL_LINK} />
+        </div>
+      </div>
+
+      <div className="my-12 flex items-center gap-4 text-ink-soft">
+        <span className="h-px flex-1 bg-line" />
+        <span className="font-mono text-sm">oder schreib mir</span>
+        <span className="h-px flex-1 bg-line" />
+      </div>
+
+      <form onSubmit={onSubmit} className="flex flex-col gap-4">
         <label className="flex flex-col gap-1.5">
           <span className="font-mono text-[0.78rem] uppercase tracking-wide text-ink-soft">Name</span>
           <input name="name" required autoComplete="name" className={input} />
