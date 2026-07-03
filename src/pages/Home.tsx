@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react"
+import { lazy, Suspense, useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Link } from "react-router-dom"
 import { Intro } from "@/components/Intro"
 
@@ -16,10 +17,18 @@ const title = "font-display font-bold tracking-tight text-[clamp(1.9rem,4vw,2.8r
 const lead = "mx-auto max-w-[640px] text-lg text-ink-soft"
 
 function Hero() {
+  const ref = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] })
+  // ponytail: sanfte Parallax + Lift/Fade beim Scrollen, rein mit framer-motion (kein GSAP).
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 55])
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -55])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0])
+
   return (
-    <section id="hero" className="relative flex min-h-[92vh] items-center overflow-hidden">
-      <video
-        className="absolute inset-0 z-0 h-full w-full object-cover opacity-45"
+    <section ref={ref} id="hero" className="relative flex min-h-[92vh] items-end overflow-hidden pb-[clamp(2.5rem,7vh,5rem)]">
+      <motion.video
+        style={{ y: bgY }}
+        className="absolute -top-[8%] left-0 z-0 h-[116%] w-full object-cover opacity-45"
         autoPlay
         muted
         loop
@@ -27,18 +36,17 @@ function Hero() {
         aria-hidden="true"
         src="/assets/projekte/backround.mp4"
       />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/75 via-background/55 to-background" aria-hidden="true" />
-      <div className="relative z-10 mx-auto w-full max-w-[1120px] px-[clamp(1.1rem,4vw,2.2rem)]">
-        <div className="max-w-[820px]">
-          <h1 className="font-display text-[clamp(2.5rem,6.6vw,4.6rem)] font-bold leading-[1.05] tracking-tight">
-            Verkaufsstarke Websites für Unternehmen,{" "}
-            <em className="bg-gradient-to-r from-[#dfe7ff] to-[#8fb0ff] bg-clip-text italic text-transparent">
-              die noch im Jahr 2005 feststecken.
-            </em>
+      <div className="absolute inset-0 z-0 bg-gradient-to-tr from-background via-background/65 to-background/25" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 z-0 h-1/3 bg-gradient-to-t from-background to-transparent" aria-hidden="true" />
+      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="relative z-10 mx-auto w-full max-w-[1120px] px-[clamp(1.1rem,4vw,2.2rem)]">
+        <div className="max-w-[900px]">
+          <h1 className="font-display text-[clamp(2.8rem,7vw,5rem)] font-bold leading-[1.03] tracking-tight">
+            <em className="italic text-gold-light">Verkaufsstarke Websites</em>{" "}
+            <span className="block text-ink">für Unternehmen von heute.</span>
           </h1>
-          <p className="mt-6 max-w-[620px] text-xl text-ink-soft">
-            Ich baue moderne, schnelle Websites für Unternehmen aus der Region Karlsruhe –
-            und das Beste: Du zahlst erst, wenn deine Seite fertig ist und dir gefällt.
+          <p className="mt-6 max-w-[600px] text-xl text-ink-soft">
+            Moderne, schnelle Websites für Unternehmen aus der Region Karlsruhe – du zahlst erst,
+            wenn deine Seite fertig ist und dir gefällt.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5">
             <Magnetic>
@@ -78,7 +86,7 @@ function Hero() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
