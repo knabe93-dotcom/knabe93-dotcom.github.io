@@ -60,12 +60,13 @@ function Hero() {
             </Magnetic>
             <div className="flex items-center gap-3">
               <div className="flex -space-x-3">
-                {[0, 1, 2].map((i) => (
-                  <span key={i} className="grid h-10 w-10 place-items-center rounded-full border-2 border-background bg-gradient-to-br from-accent to-accent-light text-white">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
-                      <circle cx="12" cy="8" r="3.5" />
-                      <path d="M5 20a7 7 0 0 1 14 0" />
-                    </svg>
+                {[
+                  { ini: "K", cls: "bg-gradient-to-br from-accent to-accent-light text-white" },
+                  { ini: "S", cls: "bg-gradient-to-br from-gold to-gold-light text-background" },
+                  { ini: "M", cls: "bg-gradient-to-br from-accent-light to-accent text-white" },
+                ].map((a) => (
+                  <span key={a.ini} className={`grid h-10 w-10 place-items-center rounded-full border-2 border-background font-mono text-sm font-semibold ${a.cls}`}>
+                    {a.ini}
                   </span>
                 ))}
               </div>
