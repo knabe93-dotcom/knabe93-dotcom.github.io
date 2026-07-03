@@ -179,12 +179,21 @@ function Problem() {
   )
 }
 
+// Editierbar: [Label, große Zahl, Zusatz]
 const stats = [
-  ["Mehr Conversion", "+7 %", "mehr Conversion bei schnellerer Ladezeit"],
-  ["Weniger Absprünge", "53 %", "verlassen die Website nach 3 s"],
-  ["Mobile Aufrufe", "60 %+", "des Traffics kommen über das Handy"],
+  ["Conversion", "+7 %", "mehr Abschlüsse bei schnellerer Ladezeit"],
+  ["Absprünge", "53 %", "verlassen langsame Seiten nach 3 Sekunden"],
+  ["Mobil", "60 %+", "des Traffics kommt über das Smartphone"],
 ]
-const bars = [32, 46, 38, 56, 50, 66, 60, 82, 74, 96]
+// Beispielhafte Anfragen-Kurve (Werte in %): alte Seite bleibt flach, moderne Seite wächst
+const growth = [
+  { alt: 18, neu: 22 },
+  { alt: 15, neu: 31 },
+  { alt: 19, neu: 46 },
+  { alt: 16, neu: 62 },
+  { alt: 18, neu: 80 },
+  { alt: 17, neu: 100 },
+]
 function Stats() {
   return (
     <Section>
@@ -195,17 +204,67 @@ function Stats() {
         </div>
         <Reveal><p className="text-lg text-ink-soft">Eine schnelle, moderne Seite ist kein Kostenfaktor – sie bringt messbar mehr Conversion, Sichtbarkeit und Anfragen.</p></Reveal>
       </div>
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {stats.map(([label, num, sub]) => (
-          <Reveal key={label} className={card}>
-            <span className="font-mono text-[0.74rem] uppercase tracking-[0.12em] text-ink-soft">{label}</span>
-            <div className="mt-1 font-display text-[clamp(2.5rem,6vw,3.4rem)] font-bold leading-none">{num}</div>
-            <p className="mt-1 text-ink-soft">{sub}</p>
-            <div className="mt-5 flex h-16 items-end gap-1.5">
-              {bars.map((h, i) => (
-                <span key={i} className="flex-1 rounded-t bg-gradient-to-t from-accent/25 to-accent" style={{ height: `${h}%` }} />
-              ))}
+
+      <Reveal className="relative mt-12">
+        <div aria-hidden className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-r from-accent/20 via-transparent to-gold/25 blur-3xl" />
+        <div className="rounded-2xl border border-line-strong bg-surface/70 p-6 shadow-2xl ring-1 ring-white/5 backdrop-blur-sm sm:p-8">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-ink-soft">Beispielhafte Entwicklung</span>
+              <p className="mt-1 font-display text-xl font-semibold">Anfragen über die Zeit</p>
             </div>
+            <div className="flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2">
+              <span aria-hidden className="text-lg leading-none text-gold-light">↗</span>
+              <span className="font-mono text-sm font-medium text-gold-light">mehr Anfragen = mehr Umsatz</span>
+            </div>
+          </div>
+
+          <div className="mt-8 flex items-center gap-5 font-mono text-xs text-ink-soft">
+            <span className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-sm bg-line-strong" /> Alte Seite</span>
+            <span className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-sm bg-gradient-to-t from-accent to-gold" /> Moderne Seite</span>
+          </div>
+
+          <div
+            className="mt-4 flex h-[clamp(190px,32vw,290px)] items-end gap-3 sm:gap-5"
+            style={{ backgroundImage: "linear-gradient(to top, var(--color-line) 1px, transparent 1px)", backgroundSize: "100% 25%" }}
+          >
+            {growth.map((g, i) => {
+              const last = i === growth.length - 1
+              return (
+                <div key={i} className="flex h-full flex-1 items-end justify-center gap-1.5 sm:gap-2">
+                  <motion.span
+                    className="w-1/3 rounded-t bg-line-strong"
+                    style={{ height: `${g.alt}%`, transformOrigin: "bottom" }}
+                    initial={{ scaleY: 0 }}
+                    whileInView={{ scaleY: 1 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
+                  />
+                  <motion.span
+                    className={`w-1/3 rounded-t bg-gradient-to-t from-accent to-gold ${last ? "shadow-[0_0_24px_-2px] shadow-gold/60 ring-1 ring-gold/40" : ""}`}
+                    style={{ height: `${g.neu}%`, transformOrigin: "bottom" }}
+                    initial={{ scaleY: 0 }}
+                    whileInView={{ scaleY: 1 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.7, delay: 0.15 + i * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                </div>
+              )
+            })}
+          </div>
+          <div className="mt-3 flex justify-between font-mono text-[0.68rem] uppercase tracking-wide text-ink-soft">
+            <span>Launch</span>
+            <span>nach 6 Monaten</span>
+          </div>
+        </div>
+      </Reveal>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+        {stats.map(([label, num, sub], i) => (
+          <Reveal key={label} delay={i * 0.08} className="rounded-xl border border-line bg-surface/60 p-5 backdrop-blur-sm">
+            <div className="font-display text-[clamp(2rem,5vw,2.9rem)] font-bold leading-none text-gold-light">{num}</div>
+            <span className="mt-2 block font-mono text-[0.7rem] uppercase tracking-[0.14em] text-ink-soft">{label}</span>
+            <p className="mt-1 text-sm text-ink-soft">{sub}</p>
           </Reveal>
         ))}
       </div>
@@ -485,11 +544,14 @@ function Process() {
 function Guarantee() {
   return (
     <Section>
-      <Reveal className="mx-auto max-w-[680px] rounded-2xl border border-accent bg-gradient-to-b from-surface to-elevated p-[clamp(2rem,5vw,3rem)] text-center shadow-2xl">
-        <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-accent text-2xl font-bold text-white">✓</div>
-        <h2 className="mt-4 font-display text-[clamp(1.6rem,4vw,2.1rem)] font-bold">Erst die Website, dann die Bezahlung</h2>
-        <p className="mx-auto mt-4 max-w-[46ch] text-ink-soft">Du gehst mit keinem Cent in Vorleistung. Wir bauen deine Website, du siehst das Ergebnis – und bezahlt wird erst, wenn du wirklich zufrieden bist.</p>
-        <Link to="/kontakt" className="mt-6 inline-block"><Button size="lg">Unverbindlich anfragen</Button></Link>
+      <Reveal className="relative mx-auto max-w-[720px]">
+        <div aria-hidden className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-r from-accent/25 via-transparent to-gold/20 blur-3xl" />
+        <div className="rounded-2xl border border-accent/30 bg-surface/70 p-[clamp(2rem,5vw,3.2rem)] text-center shadow-2xl ring-1 ring-accent/15 backdrop-blur-sm">
+          <Eyebrow center>Deine Garantie</Eyebrow>
+          <h2 className={`${title} mt-4`}>Erst die Website, dann die Bezahlung</h2>
+          <p className="mx-auto mt-4 max-w-[48ch] text-ink-soft">Du gehst mit keinem Cent in Vorleistung. Ich baue deine Website, du siehst das Ergebnis – und bezahlt wird erst, wenn du wirklich zufrieden bist.</p>
+          <Link to="/kontakt" className="mt-7 inline-block"><Button size="lg">Unverbindlich anfragen</Button></Link>
+        </div>
       </Reveal>
     </Section>
   )
