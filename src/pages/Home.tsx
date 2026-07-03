@@ -505,15 +505,30 @@ const faqs = [
 function Faq() {
   return (
     <Section id="faq" alt>
-      <Reveal><Eyebrow center>FAQ</Eyebrow></Reveal>
-      <Reveal><h2 className={`${title} mt-4 text-center`}>Häufige Fragen</h2></Reveal>
-      <div className="mx-auto mt-10 max-w-[720px]">
-        {faqs.map(([q, a]) => (
-          <details key={q} className="mb-3 rounded-xl border border-line bg-surface/70 px-5 [&_summary]:cursor-pointer">
-            <summary className="flex items-center justify-between py-4 font-display font-semibold marker:content-none">{q}<span className="text-accent">+</span></summary>
-            <p className="pb-4 text-ink-soft">{a}</p>
-          </details>
-        ))}
+      <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <Reveal><Eyebrow>FAQ</Eyebrow></Reveal>
+          <Reveal><h2 className={`${title} mt-4`}>Häufige Fragen</h2></Reveal>
+          <Reveal><p className="mt-4 max-w-[38ch] text-ink-soft">Noch etwas offen? Ich beantworte deine Fragen gern persönlich – unverbindlich.</p></Reveal>
+          <Reveal>
+            <Link to="/kontakt" className="mt-5 inline-flex items-center gap-1.5 font-mono text-sm text-gold-light transition-colors hover:text-gold">
+              Frag mich direkt <span aria-hidden>→</span>
+            </Link>
+          </Reveal>
+        </div>
+        <div>
+          {faqs.map(([q, a], i) => (
+            <Reveal key={q} delay={i * 0.06}>
+              <details className="group mb-3 rounded-xl border border-line bg-surface/70 px-5 transition-colors hover:border-accent/50 open:border-accent/60 [&_summary]:cursor-pointer">
+                <summary className="flex items-center justify-between gap-4 py-4 font-display text-lg font-semibold marker:content-none">
+                  {q}
+                  <span aria-hidden className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-line text-lg text-accent-light transition-transform duration-300 group-open:rotate-45">+</span>
+                </summary>
+                <p className="pb-5 text-ink-soft">{a}</p>
+              </details>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </Section>
   )
