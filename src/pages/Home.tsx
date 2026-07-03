@@ -485,7 +485,7 @@ function Guarantee() {
 }
 
 const faqs = [
-  ["Was kostet eine Website?", "Das hängt vom Umfang ab. Nach dem kostenlosen Erstgespräch bekommst du einen klaren Festpreis – ohne versteckte Kosten."],
+  ["Was kostet eine Website?", "Das hängt vom Umfang ab – jedes Projekt ist anders. Deshalb baue ich dir zuerst einen kostenlosen Entwurf. Willst du weitermachen, bekommst du einen klaren Festpreis, ohne Vorkasse und ohne versteckte Kosten."],
   ["Wie lange dauert es?", "Eine typische Unternehmensseite ist meist in wenigen Wochen fertig – je nachdem, wie schnell Texte und Bilder vorliegen."],
   ["Brauche ich technisches Wissen?", "Nein. Ich kümmere mich um die Technik und erkläre dir alles verständlich."],
   ["Kümmerst du dich um Pflege?", "Auf Wunsch ja. Ich biete laufende Wartung an, damit deine Seite sicher und aktuell bleibt."],
