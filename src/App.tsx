@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from "react-router-dom"
 import Home from "@/pages/Home"
 import { Kontakt } from "@/pages/Kontakt"
 import { Impressum, Datenschutz } from "@/pages/Legal"
+import { CookieBanner } from "@/components/CookieBanner"
 
 // ponytail: HashRouter frisst fragment-links (#leistungen wird als Route /leistungen
 // interpretiert -> schwarzer Screen). Ein globaler Handler fängt reine In-Page-Anker
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/datenschutz" element={<Datenschutz />} />
       </Routes>
+      <CookieBanner />
     </HashRouter>
   )
 }
