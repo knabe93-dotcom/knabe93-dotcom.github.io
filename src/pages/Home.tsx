@@ -76,7 +76,7 @@ function Hero() {
             </div>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
-            {[["150+", "Umgesetzte Projekte"], ["98%", "Kundenzufriedenheit"]].map(([num, label], i) => (
+            {[["30", "Umgesetzte Projekte"], ["100%", "Kundenzufriedenheit"]].map(([num, label], i) => (
               <div key={num} className="relative w-[190px] rounded-2xl border border-line bg-surface/40 p-5 backdrop-blur-md">
                 <span className="absolute right-4 top-4 text-lg text-accent-light">✳</span>
                 <div className="font-display text-[2.6rem] font-bold leading-none">{num}</div>
@@ -124,9 +124,36 @@ function Statement() {
 }
 
 const problems = [
-  ["📱", "Nicht mobilfreundlich", "Auf dem Handy muss man zoomen und schieben. Genau dort sind aber die meisten Kunden."],
-  ["🐌", "Zu langsam", "Jede Sekunde Ladezeit kostet Besucher. Alte Seiten brauchen oft ein Vielfaches."],
-  ["🔍", "Bei Google unsichtbar", "Ohne moderne Grundlagen taucht deine Seite in der Suche kaum auf."],
+  {
+    h: "Nicht mobilfreundlich",
+    p: "Auf dem Handy muss man zoomen und schieben. Genau dort sind aber die meisten Kunden.",
+    icon: (
+      <>
+        <rect x="7" y="3" width="10" height="18" rx="2" />
+        <path d="M11 18h2" />
+      </>
+    ),
+  },
+  {
+    h: "Zu langsam",
+    p: "Jede Sekunde Ladezeit kostet Besucher. Alte Seiten brauchen oft ein Vielfaches.",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </>
+    ),
+  },
+  {
+    h: "Bei Google unsichtbar",
+    p: "Ohne moderne Grundlagen taucht deine Seite in der Suche kaum auf.",
+    icon: (
+      <>
+        <circle cx="11" cy="11" r="7" />
+        <path d="m21 21-4.3-4.3" />
+      </>
+    ),
+  },
 ]
 function Problem() {
   return (
@@ -134,12 +161,16 @@ function Problem() {
       <Reveal><Eyebrow center>Das Problem</Eyebrow></Reveal>
       <Reveal><h2 className={`${title} mt-4 text-center`}>Eine veraltete Website kostet dich Kunden</h2></Reveal>
       <Reveal><p className={`${lead} mt-4 text-center`}>Über die Hälfte aller Besucher kommt vom Smartphone. Ist deine Seite langsam oder von gestern, sind sie weg, bevor sie dein Angebot gesehen haben.</p></Reveal>
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {problems.map(([ic, h, p]) => (
-          <Reveal key={h} className={card}>
-            <div className="grid h-12 w-12 place-items-center rounded-xl bg-accent/15 text-2xl">{ic}</div>
-            <h3 className="mt-4 font-display text-xl font-semibold">{h}</h3>
-            <p className="mt-2 text-ink-soft">{p}</p>
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {problems.map((p, i) => (
+          <Reveal key={p.h} delay={i * 0.1} className={card}>
+            <div className="relative grid h-14 w-14 place-items-center">
+              <span className="absolute inset-0 rounded-full border border-accent/40" />
+              <span className="absolute inset-0 rounded-full bg-accent/20 blur-md" />
+              <svg {...svgProps} className="relative h-6 w-6 text-accent-light">{p.icon}</svg>
+            </div>
+            <h3 className="mt-5 font-display text-xl font-semibold">{p.h}</h3>
+            <p className="mt-2 text-ink-soft">{p.p}</p>
           </Reveal>
         ))}
       </div>
@@ -348,15 +379,20 @@ function Testimonials() {
   )
 }
 
-const standards = ["📱 Mobil-optimiert", "⚡ Schnelle Ladezeit", "🔒 DSGVO-konform", "🔍 SEO-Grundlagen", "♿ Barrierearm", "✉️ Kontaktformular", "🔐 SSL-Verschlüsselung", "🧹 Sauberer Code"]
+const standards = ["Mobil-optimiert", "Schnelle Ladezeit", "DSGVO-konform", "SEO-Grundlagen", "Barrierearm", "Kontaktformular", "SSL-Verschlüsselung", "Sauberer Code"]
 function Standards() {
   return (
     <Section>
       <Reveal><Eyebrow center>Standards</Eyebrow></Reveal>
       <Reveal><h2 className={`${title} mt-4 text-center`}>In jeder Website inklusive</h2></Reveal>
-      <ul className="mx-auto mt-10 grid max-w-[880px] grid-cols-2 gap-3 md:grid-cols-4">
-        {standards.map((s) => (
-          <li key={s} className="rounded-xl border border-line bg-surface/70 px-4 py-4 font-medium transition-colors hover:border-accent">{s}</li>
+      <ul className="mx-auto mt-12 grid max-w-[880px] grid-cols-2 gap-3 md:grid-cols-4">
+        {standards.map((s, i) => (
+          <Reveal key={s} delay={i * 0.05}>
+            <li className="flex items-center gap-2.5 rounded-xl border border-line bg-surface/70 px-4 py-4 font-medium transition-colors hover:border-accent/60">
+              <svg {...svgProps} className="h-4 w-4 shrink-0 text-accent-light"><path d="M20 6 9 17l-5-5" /></svg>
+              {s}
+            </li>
+          </Reveal>
         ))}
       </ul>
     </Section>
