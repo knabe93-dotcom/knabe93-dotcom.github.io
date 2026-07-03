@@ -294,24 +294,56 @@ function Projects() {
   )
 }
 
+const avatarIcon = (
+  <>
+    <circle cx="12" cy="8" r="3.5" />
+    <path d="M5 20a7 7 0 0 1 14 0" />
+  </>
+)
 function Testimonials() {
-  const items = [1, 2, 3]
   return (
     <Section alt>
-      <Reveal><Eyebrow center>Kundenstimmen</Eyebrow></Reveal>
-      <Reveal><h2 className={`${title} mt-4 text-center`}>Was Kunden sagen</h2></Reveal>
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {items.map((i) => (
-          <Reveal key={i} className={`${card} flex flex-col gap-4`}>
-            <div className="tracking-[3px] text-accent-light">★★★★★</div>
-            <p className="flex-1 font-display text-lg italic">„Hier erscheint bald eine echte Kundenstimme."</p>
-            <div className="flex items-center gap-3">
-              <span className="grid h-11 w-11 place-items-center rounded-full bg-accent/15 font-mono font-semibold text-accent-light">?</span>
-              <span><strong className="block">Name des Kunden</strong><span className="text-sm text-ink-soft">Rolle · Firma</span></span>
-            </div>
-          </Reveal>
-        ))}
+      <Reveal><Eyebrow>Kundenstimmen</Eyebrow></Reveal>
+      <Reveal><h2 className={`${title} mt-4`}>Was Kunden sagen</h2></Reveal>
+      <div className="mt-12 grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+        <Reveal className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-accent/30 bg-surface/70 p-8 shadow-2xl ring-1 ring-accent/15 backdrop-blur-sm">
+          <div>
+            <div className="tracking-[4px] text-gold-light">★★★★★</div>
+            <p className="mt-5 font-display text-[clamp(1.4rem,2.6vw,2rem)] italic leading-snug text-ink">
+              „Hier erscheint bald eine echte Kundenstimme – ausführlich, ehrlich und mit dem Namen der Person und ihres Betriebs."
+            </p>
+          </div>
+          <div className="mt-8 flex items-center gap-3">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-accent/15 text-accent-light">
+              <svg {...svgProps} className="h-6 w-6">{avatarIcon}</svg>
+            </span>
+            <span className="leading-tight">
+              <strong className="block text-ink">Name folgt</strong>
+              <span className="text-sm text-ink-soft">Rolle · Firma</span>
+            </span>
+          </div>
+        </Reveal>
+        <div className="flex flex-col gap-6">
+          {[0, 1].map((i) => (
+            <Reveal key={i} delay={0.08 * (i + 1)} className="flex flex-1 flex-col justify-between rounded-2xl border border-line bg-surface/60 p-6 backdrop-blur-sm">
+              <div>
+                <div className="tracking-[3px] text-gold-light">★★★★★</div>
+                <p className="mt-3 text-ink">„Bald steht hier eine echte, kurze Kundenstimme."</p>
+              </div>
+              <div className="mt-5 flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-accent/15 text-accent-light">
+                  <svg {...svgProps} className="h-5 w-5">{avatarIcon}</svg>
+                </span>
+                <span className="text-sm leading-tight">
+                  <strong className="block text-ink">Name folgt</strong>
+                  <span className="text-ink-soft">Rolle · Firma</span>
+                </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
+      <p className="mt-6 font-mono text-xs text-ink-soft">Platzhalter – echte Kundenstimmen folgen.</p>
     </Section>
   )
 }
@@ -455,6 +487,40 @@ function Faq() {
   )
 }
 
+function ClosingCta() {
+  return (
+    <section className="relative flex min-h-[68vh] items-center justify-center overflow-hidden">
+      <video
+        className="absolute inset-0 z-0 h-full w-full object-cover opacity-35"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+        src="/assets/projekte/backround.mp4"
+      />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/85 via-background/70 to-background" aria-hidden="true" />
+      <Reveal className="relative z-10 mx-auto max-w-[820px] px-[clamp(1.1rem,4vw,2.2rem)] text-center">
+        <h2 className="font-display text-[clamp(2.2rem,5.5vw,3.6rem)] font-bold leading-[1.08] tracking-tight">
+          Bereit für einen Auftritt, der Kunden <em className="italic text-gold-light">gewinnt</em>?
+        </h2>
+        <div className="mt-8 flex justify-center">
+          <Magnetic>
+            <Link
+              to="/kontakt"
+              className="group inline-flex items-center gap-3 rounded-full bg-accent py-2 pl-7 pr-2 text-lg font-medium text-white shadow-lg shadow-accent/25 transition-colors hover:bg-accent-light"
+            >
+              Projekt anfragen
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-white text-lg text-accent transition-transform group-hover:translate-x-0.5">→</span>
+            </Link>
+          </Magnetic>
+        </div>
+        <p className="mt-6 font-mono text-sm text-ink-soft">Antwort innerhalb von 24 Stunden · Du zahlst erst bei Zufriedenheit</p>
+      </Reveal>
+    </section>
+  )
+}
+
 export default function Home() {
   return (
     <>
@@ -475,6 +541,7 @@ export default function Home() {
         <Process />
         <Guarantee />
         <Faq />
+        <ClosingCta />
       </main>
       <Footer />
     </>
