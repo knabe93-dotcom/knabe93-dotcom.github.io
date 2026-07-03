@@ -281,13 +281,19 @@ function Services() {
 function Compare() {
   return (
     <Section id="referenzen">
-      <Reveal className="text-center">
-        <span className="inline-block rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 font-mono text-[0.74rem] uppercase tracking-wide text-accent-light">Vorher / Nachher</span>
-      </Reveal>
+      <Reveal><Eyebrow center>Vorher / Nachher</Eyebrow></Reveal>
       <Reveal><h2 className={`${title} mt-4 text-center`}>Von Grund auf professionell gecodet</h2></Reveal>
       <Reveal><p className={`${lead} mt-4 text-center`}>Kein Baukasten, kein Template von der Stange – jede Website schreibe ich von Hand. So sieht der Unterschied aus:</p></Reveal>
-      <Reveal className="mx-auto mt-10 max-w-[960px] overflow-hidden rounded-2xl border border-line-strong shadow-2xl">
-        <img src="/assets/projekte/vorhernachher.webp" alt="Vorher/Nachher-Vergleich eines Website-Redesigns" className="block w-full" loading="lazy" />
+      <Reveal className="relative mx-auto mt-12 max-w-[1000px]">
+        <div aria-hidden className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-r from-accent/25 via-transparent to-gold/20 blur-3xl" />
+        <div className="group overflow-hidden rounded-2xl border border-line-strong shadow-2xl ring-1 ring-white/5">
+          <img
+            src="/assets/projekte/vorhernachher.webp"
+            alt="Vorher/Nachher-Vergleich: von Skizze &amp; Code zur fertigen Website"
+            loading="lazy"
+            className="block w-full transition-transform duration-700 group-hover:scale-[1.02]"
+          />
+        </div>
       </Reveal>
     </Section>
   )
