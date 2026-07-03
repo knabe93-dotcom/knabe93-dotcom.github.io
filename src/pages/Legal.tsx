@@ -37,10 +37,12 @@ export function Datenschutz() {
       <h2>2. Hosting</h2>
       <p>Diese Website wird bei einem externen Anbieter gehostet. Beim Aufruf werden technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt) in Server-Logfiles verarbeitet (Art. 6 Abs. 1 lit. f DSGVO).</p>
       <h2>3. Cookies</h2>
-      <p>Diese Seite setzt keine eigenen Cookies und nutzt kein Tracking.</p>
+      <p>Diese Seite setzt keine eigenen Cookies und nutzt kein Tracking. Der eingebundene Terminplaner (siehe Punkt 5) kann für seine Funktion technisch notwendige Cookies setzen.</p>
       <h2>4. Kontaktaufnahme</h2>
       <p>Bei einer E-Mail werden deine Angaben zur Bearbeitung der Anfrage gespeichert (Art. 6 Abs. 1 lit. b DSGVO).</p>
-      <h2>5. Deine Rechte</h2>
+      <h2>5. Terminbuchung (Cal.com &amp; Zoom)</h2>
+      <p>Für die Online-Terminvereinbarung ist der Dienst Cal.com eingebunden (Cal.com, Inc.; EU-Rechenzentrum). Bei der Buchung werden deine Angaben (z. B. Name, E-Mail, Wunschtermin) zur Vereinbarung und Durchführung des Gesprächs verarbeitet (Art. 6 Abs. 1 lit. b DSGVO). Das Gespräch selbst findet über Zoom (Zoom Communications, Inc.) statt; dabei gelten die Datenschutzbestimmungen von Zoom.</p>
+      <h2>6. Deine Rechte</h2>
       <p>Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch nach Art. 15–21 DSGVO sowie ein Beschwerderecht bei der Aufsichtsbehörde.</p>
     </Layout>
   )

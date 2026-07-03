@@ -35,10 +35,10 @@ export function CalEmbed({ calLink }: { calLink: string }) {
           p(self as unknown as { q: unknown[] }, args)
         }
         C.Cal = cal
-      })(w as unknown as Record<string, unknown>, "https://app.cal.com/embed/embed.js", "init")
+      })(w as unknown as Record<string, unknown>, "https://app.cal.eu/embed/embed.js", "init")
     }
     const Cal = (window as unknown as { Cal: (...a: unknown[]) => void }).Cal
-    Cal("init", { origin: "https://cal.com" })
+    Cal("init", { origin: "https://app.cal.eu" })
     Cal("inline", {
       elementOrSelector: "#cal-inline",
       calLink,

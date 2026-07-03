@@ -3,9 +3,8 @@ import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { CalEmbed } from "@/components/CalEmbed"
 
-// TODO: Nach Cal.com-Einrichtung hier den eigenen Buchungs-Link eintragen,
-// Format "username/event" – z. B. "kevin-knabe/30min".
-const CAL_LINK = "kevin-knabe/30min"
+// Cal.com-Buchungslink (EU-Instanz: https://cal.eu/kevin-k/30min)
+const CAL_LINK = "kevin-k/30min"
 
 // ponytail: mailto-Form – null Backend, öffnet das Mailprogramm des Besuchers.
 // Upgrade-Pfad, wenn Anfragen serverseitig ankommen sollen (ohne Mailclient):
