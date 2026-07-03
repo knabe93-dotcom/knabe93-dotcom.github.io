@@ -30,23 +30,25 @@ export function Kontakt() {
   }
 
   return (
-    <div className="relative z-10 mx-auto max-w-[760px] px-[clamp(1.1rem,4vw,2.2rem)] py-16">
-      <Link to="/" className="font-mono text-sm text-accent-light hover:text-accent">
-        ← Zurück zur Startseite
-      </Link>
-      <img
-        src="/assets/projekte/kevin.jpg"
-        alt="Kevin Knabe"
-        className="mt-8 h-24 w-24 rounded-full object-cover shadow-2xl ring-1 ring-line-strong"
-      />
-      <h1 className="mt-6 font-display text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight">
-        Projekt anfragen
-      </h1>
-      <p className="mt-4 text-lg text-ink-soft">
-        Buch dir direkt ein kostenloses <strong className="text-ink">30-Minuten-Gespräch über Zoom</strong> –
-        wähl einfach Tag und Uhrzeit. Du bekommst den Zoom-Link automatisch per E-Mail. Lieber schreiben?
-        Nutz das Formular weiter unten.
-      </p>
+    <div className="relative z-10 mx-auto max-w-[1000px] px-[clamp(1.1rem,4vw,2.2rem)] py-16">
+      <div className="max-w-[640px]">
+        <Link to="/" className="font-mono text-sm text-accent-light hover:text-accent">
+          ← Zurück zur Startseite
+        </Link>
+        <img
+          src="/assets/projekte/kevin.jpg"
+          alt="Kevin Knabe"
+          className="mt-8 h-24 w-24 rounded-full object-cover shadow-2xl ring-1 ring-line-strong"
+        />
+        <h1 className="mt-6 font-display text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight">
+          Projekt anfragen
+        </h1>
+        <p className="mt-4 text-lg text-ink-soft">
+          Buch dir direkt ein kostenloses <strong className="text-ink">30-Minuten-Gespräch über Zoom</strong> –
+          wähl einfach Tag und Uhrzeit. Du bekommst den Zoom-Link automatisch per E-Mail. Lieber schreiben?
+          Nutz das Formular weiter unten.
+        </p>
+      </div>
 
       <div className="mt-10">
         <span className="font-mono text-[0.78rem] uppercase tracking-wide text-gold-light">
@@ -57,6 +59,7 @@ export function Kontakt() {
         </div>
       </div>
 
+      <div className="max-w-[640px]">
       <div className="my-12 flex items-center gap-4 text-ink-soft">
         <span className="h-px flex-1 bg-line" />
         <span className="font-mono text-sm">oder schreib mir</span>
@@ -88,6 +91,7 @@ export function Kontakt() {
         </a>{" "}
         · 76344 Karlsruhe
       </p>
+      </div>
     </div>
   )
 }
