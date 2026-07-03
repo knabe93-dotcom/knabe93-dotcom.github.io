@@ -294,10 +294,10 @@ function Compare() {
 }
 
 const projects = [
-  ["dasrad.webp", "Fahrrad & E-Commerce", "DASRAD"],
-  ["kanzlei.webp", "Recht & Kanzlei", "Rechtsberatung"],
-  ["luxe-salon.webp", "Beauty & Friseur", "Luxe Salon"],
-  ["vista-suites.webp", "Hotel & Hospitality", "Vista Suites"],
+  ["ref-velocraft.webp", "Velocraft Bikes – E-Commerce-Website für eine Fahrradmarke"],
+  ["ref-lindner.webp", "Dr. Lindner & Partner – Website für eine Kanzlei"],
+  ["ref-aura.webp", "Aura Cosmetics – Beauty- & Wellness-Website"],
+  ["ref-montague.webp", "The Montague Suites – Website für ein Hotel"],
 ]
 function Projects() {
   return (
@@ -305,20 +305,9 @@ function Projects() {
       <Reveal><Eyebrow center>Referenzen</Eyebrow></Reveal>
       <Reveal><h2 className={`${title} mt-4 text-center`}>Branchen, für die ich Websites baue</h2></Reveal>
       <div className="mx-auto mt-12 grid max-w-[980px] gap-6 sm:grid-cols-2">
-        {projects.map(([img, cat, label], i) => (
-          <Reveal key={img} delay={i * 0.08} className="group overflow-hidden rounded-2xl border border-line bg-surface/60 transition-colors hover:border-accent/60">
-            <div className="flex items-center gap-1.5 border-b border-line px-4 py-2.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
-              <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
-              <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
-            </div>
-            <div className="relative overflow-hidden">
-              <img src={`/assets/projekte/${img}`} alt={`Website für ${cat}`} loading="lazy" className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 bg-gradient-to-t from-[#060912]/95 via-[#060912]/50 to-transparent px-5 pb-4 pt-12">
-                <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-gold-light">{cat}</span>
-                <span className="font-display text-xl font-semibold text-white">{label}</span>
-              </figcaption>
-            </div>
+        {projects.map(([img, alt], i) => (
+          <Reveal key={img} delay={i * 0.08} className="group overflow-hidden rounded-2xl border border-line shadow-xl transition-colors hover:border-accent/60">
+            <img src={`/assets/projekte/${img}`} alt={alt} loading="lazy" className="block w-full transition-transform duration-500 group-hover:scale-[1.03]" />
           </Reveal>
         ))}
       </div>
