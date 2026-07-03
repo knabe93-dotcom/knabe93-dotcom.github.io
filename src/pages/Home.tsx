@@ -183,22 +183,62 @@ function Stats() {
 }
 
 const services = [
-  ["↻", "Website-Relaunch", "Aus deinem alten Auftritt wird eine moderne, schnelle Seite – mobilfreundlich und bei Google auffindbar."],
-  ["✦", "Neue Website", "Noch keine Seite? Ich baue von Grund auf eine, die zu deinem Betrieb passt – inklusive Kontakt & Anfahrt."],
-  ["⚙", "Wartung & Pflege", "Updates, Änderungen und technische Betreuung, damit deine Seite sicher und aktuell bleibt."],
+  {
+    h: "Website-Relaunch",
+    p: "Aus deinem alten Auftritt wird eine moderne, schnelle Seite – mobilfreundlich und bei Google auffindbar.",
+    icon: (
+      <>
+        <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+        <path d="M21 3v6h-6" />
+      </>
+    ),
+  },
+  {
+    h: "Neue Website",
+    p: "Noch keine Seite? Ich baue von Grund auf eine, die zu deinem Betrieb passt – inklusive Kontakt & Anfahrt.",
+    icon: (
+      <>
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M3 9h18" />
+        <path d="M7.5 6.5h.01M10.5 6.5h.01" />
+      </>
+    ),
+  },
+  {
+    h: "Wartung & Pflege",
+    p: "Updates, Änderungen und technische Betreuung, damit deine Seite sicher und aktuell bleibt.",
+    icon: (
+      <>
+        <path d="M12 8.5V4M12 20v-3.5" />
+        <circle cx="12" cy="12" r="3.2" />
+        <path d="M18.9 9.2 15.8 11M8.2 13l-3.1 1.8M5.1 9.2 8.2 11M15.8 13l3.1 1.8" />
+      </>
+    ),
+  },
 ]
 function Services() {
   return (
     <Section id="leistungen" alt>
-      <Reveal><Eyebrow center>Leistungen</Eyebrow></Reveal>
-      <Reveal><h2 className={`${title} mt-4 text-center`}>Was ich für dich mache</h2></Reveal>
-      <Reveal><p className={`${lead} mt-4 text-center`}>Website Building mit einem klaren Vorteil: Du zahlst erst, wenn deine Seite steht.</p></Reveal>
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {services.map(([ic, h, p]) => (
-          <Reveal key={h} className={`${card} relative overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:bg-accent`}>
-            <div className="grid h-12 w-12 place-items-center rounded-xl bg-accent/15 text-2xl text-accent">{ic}</div>
-            <h3 className="mt-4 font-display text-xl font-semibold">{h}</h3>
-            <p className="mt-2 text-ink-soft">{p}</p>
+      <Reveal><Eyebrow>Leistungen</Eyebrow></Reveal>
+      <Reveal><h2 className={`${title} mt-4`}>Was ich für dich mache</h2></Reveal>
+      <Reveal><span className="mt-4 block h-px w-24 bg-gradient-to-r from-gold to-transparent" /></Reveal>
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {services.map((s, i) => (
+          <Reveal
+            key={s.h}
+            delay={i * 0.1}
+            className={`relative flex flex-col overflow-hidden rounded-2xl border bg-surface/70 p-7 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1 before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:bg-accent ${i === 1 ? "border-accent/60 ring-1 ring-accent/40" : "border-line hover:border-accent/60"}`}
+          >
+            <div className="relative grid h-16 w-16 place-items-center">
+              <span className="absolute inset-0 rounded-full border border-accent/40" />
+              <span className="absolute inset-0 rounded-full bg-accent/20 blur-md" />
+              <svg {...svgProps} className="relative h-7 w-7 text-accent-light">{s.icon}</svg>
+            </div>
+            <h3 className="mt-5 font-display text-xl font-semibold">{s.h}</h3>
+            <p className="mt-2 flex-1 text-ink-soft">{s.p}</p>
+            <Link to="/kontakt" className="mt-5 inline-flex w-fit items-center gap-1.5 font-mono text-sm text-gold-light transition-colors hover:text-gold">
+              mehr erfahren <span aria-hidden>→</span>
+            </Link>
           </Reveal>
         ))}
       </div>
@@ -232,14 +272,21 @@ function Projects() {
     <Section id="projekte" alt>
       <Reveal><Eyebrow center>Referenzen</Eyebrow></Reveal>
       <Reveal><h2 className={`${title} mt-4 text-center`}>Branchen, für die ich Websites baue</h2></Reveal>
-      <div className="mx-auto mt-10 grid max-w-[980px] gap-6 sm:grid-cols-2">
-        {projects.map(([img, cat, label]) => (
-          <Reveal key={img} className="group relative overflow-hidden rounded-2xl border border-line">
-            <img src={`/assets/projekte/${img}`} alt={`Website für ${cat}`} loading="lazy" className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 bg-gradient-to-t from-[#060912]/90 to-transparent px-5 pb-4 pt-10">
-              <span className="font-display text-lg font-semibold text-white">{cat}</span>
-              <span className="font-mono text-[0.78rem] text-accent-light">{label}</span>
-            </figcaption>
+      <div className="mx-auto mt-12 grid max-w-[980px] gap-6 sm:grid-cols-2">
+        {projects.map(([img, cat, label], i) => (
+          <Reveal key={img} delay={i * 0.08} className="group overflow-hidden rounded-2xl border border-line bg-surface/60 transition-colors hover:border-accent/60">
+            <div className="flex items-center gap-1.5 border-b border-line px-4 py-2.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+              <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+              <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+            </div>
+            <div className="relative overflow-hidden">
+              <img src={`/assets/projekte/${img}`} alt={`Website für ${cat}`} loading="lazy" className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 bg-gradient-to-t from-[#060912]/95 via-[#060912]/50 to-transparent px-5 pb-4 pt-12">
+                <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-gold-light">{cat}</span>
+                <span className="font-display text-xl font-semibold text-white">{label}</span>
+              </figcaption>
+            </div>
           </Reveal>
         ))}
       </div>
