@@ -44,48 +44,29 @@ function Hero() {
             <em className="italic text-gold-light">Verkaufsstarke Websites</em>{" "}
             <span className="block text-ink">für Unternehmen von heute.</span>
           </h1>
-          <p className="mt-6 max-w-[600px] text-xl text-ink-soft">
-            Moderne, schnelle Websites für Unternehmen aus der Region Karlsruhe – du zahlst erst,
-            wenn deine Seite fertig ist und dir gefällt.
+          <p className="mt-6 max-w-[620px] text-xl text-ink-soft">
+            Ich baue dir zuerst einen fertigen Entwurf deiner neuen Website – kostenlos und
+            unverbindlich. Du entscheidest in Ruhe und zahlst erst, wenn er dir wirklich gefällt.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5">
+          <div className="mt-9">
             <Magnetic>
               <Link
                 to="/kontakt"
                 className="group inline-flex items-center gap-3 rounded-full bg-accent py-1.5 pl-6 pr-1.5 font-medium text-white shadow-lg shadow-accent/25 transition-colors hover:bg-accent-light"
               >
-                Los geht’s
+                Kostenlosen Entwurf anfragen
                 <span className="grid h-10 w-10 place-items-center rounded-full bg-white text-lg text-accent transition-transform group-hover:translate-x-0.5">→</span>
               </Link>
             </Magnetic>
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-3">
-                {[
-                  { ini: "K", cls: "bg-gradient-to-br from-accent to-accent-light text-white" },
-                  { ini: "S", cls: "bg-gradient-to-br from-gold to-gold-light text-background" },
-                  { ini: "M", cls: "bg-gradient-to-br from-accent-light to-accent text-white" },
-                ].map((a) => (
-                  <span key={a.ini} className={`grid h-10 w-10 place-items-center rounded-full border-2 border-background font-mono text-sm font-semibold ${a.cls}`}>
-                    {a.ini}
-                  </span>
-                ))}
-              </div>
-              <div className="leading-tight">
-                <div className="font-display text-lg font-semibold text-ink">50+</div>
-                <div className="text-sm text-ink-soft">Zufriedene Kunden</div>
-              </div>
-            </div>
           </div>
-          <div className="mt-8 flex flex-wrap gap-4">
-            {[["30", "Umgesetzte Projekte"], ["100%", "Kundenzufriedenheit"]].map(([num, label], i) => (
-              <div key={num} className="relative w-[190px] rounded-2xl border border-line bg-surface/40 p-5 backdrop-blur-md">
-                <span className="absolute right-4 top-4 text-lg text-accent-light">✳</span>
-                <div className="font-display text-[2.6rem] font-bold leading-none">{num}</div>
-                <div className="mt-3 font-mono text-[0.68rem] uppercase tracking-wider text-accent-light/70">no.{i + 1}</div>
-                <div className="text-sm text-ink-soft">{label}</div>
-              </div>
+          <ul className="mt-8 flex flex-wrap gap-3">
+            {["Erst sehen, dann zahlen", "Kein Risiko, keine Vorkasse", "Mobil-optimiert & DSGVO-konform"].map((t) => (
+              <li key={t} className="flex items-center gap-2 rounded-full border border-line bg-surface/40 px-4 py-2 text-sm text-ink-soft backdrop-blur-md">
+                <svg {...svgProps} className="h-4 w-4 shrink-0 text-accent-light"><path d="M20 6 9 17l-5-5" /></svg>
+                {t}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </motion.div>
     </section>
@@ -115,8 +96,8 @@ function Statement() {
       <Reveal>
         <p className="mx-auto max-w-[900px] text-center font-sans text-[clamp(1.5rem,3.4vw,2.4rem)] font-light leading-[1.35] text-ink-soft">
           Ich verbinde <em className={em}>durchdachtes Design</em>, <em className={em}>sauberen Code</em> und{" "}
-          <em className="font-display italic text-accent-light">ehrliche Beratung</em> – für Unternehmen aus der Region
-          Karlsruhe, die online endlich modern auftreten wollen. Gebaut mit <em className={em}>Sorgfalt</em> und Blick
+          <em className="font-display italic text-accent-light">ehrliche Beratung</em> – für Unternehmen in ganz
+          Deutschland, die online endlich modern auftreten wollen. Gebaut mit <em className={em}>Sorgfalt</em> und Blick
           fürs Detail.
         </p>
       </Reveal>
@@ -380,60 +361,6 @@ function Projects() {
   )
 }
 
-const avatarIcon = (
-  <>
-    <circle cx="12" cy="8" r="3.5" />
-    <path d="M5 20a7 7 0 0 1 14 0" />
-  </>
-)
-function Testimonials() {
-  return (
-    <Section alt>
-      <Reveal><Eyebrow>Kundenstimmen</Eyebrow></Reveal>
-      <Reveal><h2 className={`${title} mt-4`}>Was Kunden sagen</h2></Reveal>
-      <div className="mt-12 grid gap-6 lg:grid-cols-[1.6fr_1fr]">
-        <Reveal className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-accent/30 bg-surface/70 p-8 shadow-2xl ring-1 ring-accent/15 backdrop-blur-sm">
-          <div>
-            <div className="tracking-[4px] text-gold-light">★★★★★</div>
-            <p className="mt-5 font-display text-[clamp(1.4rem,2.6vw,2rem)] italic leading-snug text-ink">
-              „Hier erscheint bald eine echte Kundenstimme – ausführlich, ehrlich und mit dem Namen der Person und ihres Betriebs."
-            </p>
-          </div>
-          <div className="mt-8 flex items-center gap-3">
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-accent/15 text-accent-light">
-              <svg {...svgProps} className="h-6 w-6">{avatarIcon}</svg>
-            </span>
-            <span className="leading-tight">
-              <strong className="block text-ink">Name folgt</strong>
-              <span className="text-sm text-ink-soft">Rolle · Firma</span>
-            </span>
-          </div>
-        </Reveal>
-        <div className="flex flex-col gap-6">
-          {[0, 1].map((i) => (
-            <Reveal key={i} delay={0.08 * (i + 1)} className="flex flex-1 flex-col justify-between rounded-2xl border border-line bg-surface/60 p-6 backdrop-blur-sm">
-              <div>
-                <div className="tracking-[3px] text-gold-light">★★★★★</div>
-                <p className="mt-3 text-ink">„Bald steht hier eine echte, kurze Kundenstimme."</p>
-              </div>
-              <div className="mt-5 flex items-center gap-3">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-accent/15 text-accent-light">
-                  <svg {...svgProps} className="h-5 w-5">{avatarIcon}</svg>
-                </span>
-                <span className="text-sm leading-tight">
-                  <strong className="block text-ink">Name folgt</strong>
-                  <span className="text-ink-soft">Rolle · Firma</span>
-                </span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-      <p className="mt-6 font-mono text-xs text-ink-soft">Platzhalter – echte Kundenstimmen folgen.</p>
-    </Section>
-  )
-}
-
 const standards = ["Mobil-optimiert", "Schnelle Ladezeit", "DSGVO-konform", "SEO-Grundlagen", "Barrierearm", "Kontaktformular", "SSL-Verschlüsselung", "Sauberer Code"]
 function Standards() {
   return (
@@ -645,7 +572,6 @@ export default function Home() {
         <Services />
         <Compare />
         <Projects />
-        <Testimonials />
         <Standards />
         <Process />
         <Guarantee />
